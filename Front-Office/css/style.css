@@ -431,15 +431,6 @@ button {
     margin-top: 30px;
 }
 
-.col-md-4 {
-    border-radius: 2%;
-    border-color: #000;
-    border-style: solid;
-    margin-right: 5%;
-    margin-bottom: 5%;
-    padding-bottom: 2%;
-}
-
 .activity_name {
     font-weight: bold;
     text-transform: uppercase;
@@ -910,7 +901,7 @@ button {
 .footer_section {
     width: 100%;
     float: left;
-    background-image: url(../images/footer-bg.png);
+    background-image: url(../images/FundoBaixo.png);
     height: auto;
     padding-top: 250px;
     background-size: 100% 100%;
