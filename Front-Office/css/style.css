@@ -325,7 +325,7 @@ button {
 
 .menu_main li a:hover {
     color: #ffffff;
-    background-color: #2b2278;
+    background-color: #3A6A36;
 }
 
 .mb-lg-0,
@@ -393,7 +393,7 @@ button {
 }
 
 .read_bt a:hover {
-    background-color: #2b2278;
+    background-color: #3A6A36;
     color: #ffffff;
 }
 
@@ -453,7 +453,7 @@ button {
     float: left;
     font-size: 16px;
     color: #ffffff;
-    background-color: #2b2278;
+    background-color: #3A6A36;
     text-align: center;
     padding: 10px 0px;
     border-radius: 30px;
@@ -471,7 +471,10 @@ button {
     color: #ffffff;
     background-color: #000d10;
 }
-
+.btn_main.active a:hover {
+    color: #ffffff;
+    background-color: #3A6A36;
+}
 
 /* services section end */
 
@@ -528,11 +531,6 @@ button {
     border-radius: 30px;
     font-weight: bold;
     text-transform: uppercase;
-}
-
-.readmore_bt a:hover {
-    color: #ffffff;
-    background-color: #2b2278;
 }
 
 .about_img {
@@ -727,12 +725,12 @@ button {
     width: 20px;
     height: 20px;
     border-radius: 100%;
-    background-color: #8781bd;
+    background-color: #5f8d5a;
     bottom: -130px;
 }
 
 .carousel-indicators .active {
-    background-color: #2b2278;
+    background-color: #000000;
 }
 
 
@@ -998,7 +996,7 @@ button {
 .copyright_section {
     width: 100%;
     float: left;
-    background-color: #122c2d;
+    background-color: #000000;
     height: auto;
 }
 
@@ -1017,4 +1015,12 @@ button {
 
 .copyright_text a:hover {
     color: #e27141;
+}
+
+.btn.btn-success{
+    background-color: #3A6A36;
+}
+
+.btn.btn-success:hover{
+    background-color: #000000;
 }
