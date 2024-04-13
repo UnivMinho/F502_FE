@@ -53,10 +53,10 @@ body{
   }
   .loginBox input[type="text"]:hover, .loginBox input[type="password"]:hover{
     color: #ffffff;
-    border: 1px solid #ffffff;
+ 
   }
   .loginBox input[type="text"]:focus, .loginBox input[type="password"]:focus{
-    border-bottom: 2px solid #42F3FA
+    border-bottom: 2px solid #ffffff
   }
   .inputBox{
     position: relative;
