@@ -41,7 +41,7 @@ $colors: (
 
 
 $theme-colors: (
-  primary:         #4B49AC,
+  primary:         #3A6A36,
   secondary:       #a3a4a5,
   success:         #57B657,
   info:            #248AFD,
@@ -52,7 +52,7 @@ $theme-colors: (
 );
 
 $theme-gradient-colors: (
-  primary:         linear-gradient(230deg, #759bff, #843cf6),
+  primary:         linear-gradient(230deg, #759bff, #3A6A36),
   secondary:       linear-gradient(to right, #e7ebf0, #868e96),
   success:         linear-gradient(45deg, #7bffce, #30c93e),
   info:            linear-gradient(to bottom, #0e4cfd, #6a8eff),
@@ -217,7 +217,7 @@ $grid-gutter-width: 30px;
 $action-transition-duration: 0.25s;
 $action-transition-timing-function: ease;
 $card-tale:#7DA0FA;
-$card-dark-blue:#4747A1;
+$card-dark-blue:#3A6A36;
 $card-light-blue:#7978E9;
 $card-light-danger:#F3797E;
 ////////// OTHER VARIABLES //////////

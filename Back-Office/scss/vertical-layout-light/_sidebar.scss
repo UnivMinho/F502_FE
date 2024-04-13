@@ -201,78 +201,7 @@
     }
   }
 }
-//sidebar color variation
-.sidebar-dark {
-  .sidebar {
-    background: $sidebar-dark-bg;
-    .nav {
-      .nav-item {
-        .nav-link {
-          color: $sidebar-dark-menu-color;
-          i {
-            color: inherit;
-            &.menu-icon {
-              color: $sidebar-dark-menu-icon-color;
-            }
-          }
-          .menu-title {
-            color: inherit;
-          }
-          &[aria-expanded="true"] {
-            .menu-title {
-              color: $sidebar-dark-submenu-color;
-            }
-          }
-        }
-        &.active {
-          > .nav-link {
-            background: $sidebar-dark-menu-active-bg;
-            .menu-title,
-            i {
-              color: $sidebar-dark-menu-active-color; 
-            }
-          }
-        }
-      }
-      &:not(.sub-menu) {
-        > .nav-item {
-          &:hover {
-            > .nav-link {
-              background: $sidebar-dark-menu-hover-bg;
-              color: $sidebar-dark-menu-hover-color;                                    
-            }
-          }
-          .nav-link {
-            &[aria-expanded="true"] {
-              background: #1a1f26;
-            }
-          }
-        }
-      }
-      &.sub-menu {
-        background: #1a1f26;
-        .nav-item {
-          .nav-link {
-            color: $sidebar-dark-submenu-color;
-            &:before {
-              color: lighten($sidebar-dark-submenu-color, 10%);
-            }
-            &.active {
-              color: $sidebar-dark-menu-active-color;
-              background: transparent;
-            }
-            &:hover {
-              color: $sidebar-dark-submenu-hover-color;
-            }
-          }
-          &:hover {
-            background: transparent;
-          }
-        }
-      }
-    }
-  }
-}
+
 
 /* style for off-canvas menu*/
 @media screen and (max-width: 991px) {
