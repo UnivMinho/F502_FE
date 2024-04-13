@@ -85,24 +85,72 @@
          <div class="services_section_2">
             <div class="row">
                <div class="col-md-4">
-                  <div><img src="images/img-1.png" class="services_img"></div>
-                  <p class="activity_name">Nome</p>
-                  <p class="activity_local">Localização</p>
-                  <p class="activity_date">Data</p>
-                  <div class="btn_main"><a href="#">Ver Mais</a></div>
-               </div>
-               <div class="col-md-4">
-                  <div><img src="images/img-2.png" class="services_img"></div>
-                  <div class="btn_main active"><a href="#">Hiking</a></div>
-               </div>
-               <div class="col-md-4">
-                  <div><img src="images/img-3.png" class="services_img"></div>
-                  <div class="btn_main"><a href="#">Camping</a></div>
+                  <div class="card" style="width: 18rem;">
+                     <img src="images/img-3.png" class="card-img-top" alt="...">
+                     <div class="card-body">
+                       <h5 class="card-title"><strong>Guima Caminhada</strong></h5>
+                       <p class="card-text"><strong>Localização:</strong> Rua Dr.Mário Dias, Guimarães.</p>
+                       <p class="card-text"><strong>Data:</strong>22/10/2024</p>
+                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        VER MAIS
+                      </button>
+                     </div>
+                   </div>
                </div>
             </div>
          </div>
       </div>
    </div>
+ 
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Corrida</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <p> A Corrida Solidária é mais do que um evento desportivo; é um ato de generosidade e 
+            união. Neste evento, corredores de todas as idades e habilidades convergem para 
+            apoiar uma causa digna. Com uma atmosfera vibrante e energética, esta corrida 
+            transcende os limites da competição, focando no bem-estar coletivo e na 
+            solidariedade.
+             A jornada começa com a emoção palpável de milhares de pessoas alinhadas na 
+            linha de partida, cada uma carregando consigo não apenas a sua determinação 
+            pessoal, mas também o compromisso com a causa que estão a apoiar. Sejam elas 
+            iniciativas de caridade, programas educacionais, apoio a comunidades carentes ou 
+            preservação ambiental, a corrida solidária serve como um catalisador para o 
+            progresso social.
+             caminhada
+             Futebol
+             Ciclismo
+             Campismo
+             Durante os quilômetros percorridos, os participantes são incentivados por uma onda 
+            de apoio da multidão e pelos sorrisos calorosos dos voluntários ao longo do percurso. 
+            Enquanto cruzam a linha de chegada, é a sensação de realização pessoal misturada 
+            com a gratidão por terem contribuído para uma causa maior que os impulsiona.
+             No entanto, a verdadeira magia da Corrida Solidária está no impacto duradouro que 
+            ela tem. Os fundos arrecadados e a conscientização gerada se traduzem em 
+            mudanças tangíveis nas vidas daqueles que mais precisam. Cada passo dado é uma 
+            mensagem de esperança e solidariedade, transformando o evento em um 
+            testemunho poderoso do potencial humano para o bem.</p>
+            <p><strong>Nome:</strong>GuimaRun</p>
+            <p><strong>Localização:</strong>Rua dr.Mário Dias, Guimarães</p>
+            <p><strong>Data:</strong>22/10/2024</p>
+            <p><strong>Horário:</strong>14:30 - 15:45</p>
+            <p><strong>Preço:</strong>20€</p>
+            <p><strong>Participantes:</strong>57 máx</p>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         <button type="button" class="btn btn-primary">Save changes</button>
+       </div>
+     </div>
+   </div>
+ </div>
    <!-- services section end -->
    <!-- footer section start -->
    <div class="footer_section layout_padding">
