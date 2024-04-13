@@ -25,7 +25,7 @@ body{
     transform: translate(-50%,-50%);
     width: 350px;
     min-height: 200px;
-    background: #000000;
+    background: #32522F;
     border-radius: 10px;
     padding: 40px;
     box-sizing: border-box
@@ -35,19 +35,14 @@ body{
     display: block;
     margin-bottom: 20px
   }
-  h3{
-    margin: 0;
-    padding: 0 0 20px;
-    color: #59238F;
-    text-align: center
-  }
+
   .loginBox input{
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 5px
   }
   .loginBox input[type="text"], .loginBox input[type="password"]{
     border: none;
-    border-bottom: 2px solid #262626;
+    border-bottom: 2px solid #FFFFFF;
     outline: none;
     height: 40px;
     color: #fff;
@@ -57,15 +52,20 @@ body{
     box-sizing: border-box
   }
   .loginBox input[type="text"]:hover, .loginBox input[type="password"]:hover{
-    color: #42F3FA;
-    border: 1px solid #42F3FA;
-    box-shadow: 0 0 5px rgba(0,255,0,.3), 0 0 10px rgba(0,255,0,.2), 0 0 15px rgba(0,255,0,.1), 0 2px 0 black
+    color: #ffffff;
+    border: 1px solid #ffffff;
   }
   .loginBox input[type="text"]:focus, .loginBox input[type="password"]:focus{
     border-bottom: 2px solid #42F3FA
   }
   .inputBox{
-    position: relative
+    position: relative;
+    top: -40px;
+  }
+  .inputBox input#uname::placeholder,
+  .inputBox input#pass::placeholder {
+    text-transform: uppercase;
+    color:#fff;
   }
   .inputBox span{
     position: absolute;
@@ -75,13 +75,22 @@ body{
   .loginBox input[type="submit"]{
     border: none;
     outline: none;
-    height: 40px;
-    font-size: 16px;
-    background: #59238F;
+    height: 50px;
+    font-size: 20px;
+    background: #070707;
     color: #fff;
     border-radius: 20px;
-    cursor: pointer
+    cursor: pointer;
+    text-align: center; 
+    line-height: 50px;
   }
+  .loginBox p {
+    color: #fff; 
+    font-size: 16px; 
+    margin-bottom: 10px; 
+    text-align: center; 
+  }
+  
   .loginBox a{
     color: #262626;
     font-size: 14px;
@@ -90,9 +99,19 @@ body{
     text-align: center;
     display: block
   }
+
   a:hover{
     color: #00ffff
   }
   p{
     color: #0000ff
   }
+
+  .submitButtonContainer {
+    display: flex;
+    align-items: center;
+  }
+  .submitButtonContainer input[type="submit"] {
+    margin-right: -90px; /* Espaço entre o botão e a imagem */
+  }
+  
