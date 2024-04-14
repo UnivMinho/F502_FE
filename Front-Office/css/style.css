@@ -1019,11 +1019,74 @@ button {
 
 .btn.btn-success{
     background-color: #3A6A36;
+    margin-top: 15px;
 }
 
 .btn.btn-success:hover{
-    background-color: #000000;
+    background-color: #27A62C;
 }
 
-.jumbotron{
+.mini_banner {
+    background-color: #242424;
+    padding: 40px 0;
+}
+
+.mini_banner_content {
+    text-align: center;
+}
+
+.mini_banner_content h3 {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.mini_banner_content p {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.mini_banner_content .btn {
+    background-color: #3A6A36;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.mini_banner_content .btn:hover {
+    background-color: #27A62C;
+}
+
+/* Estilos específicos para o banner*/
+.mini_banner {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 370px; 
+    z-index: 9999;
+}
+
+@media (max-width: 767px) {
+    .mini_banner {
+        display: none;
+    }
+}
+
+
+.card-title{
+    text-align: left;
+}
+.card-title-price p, h5{
+    display: inline-block;
+}
+.price{
+  text-align: right;
+  width: 25%;
+}
+
+.card-text{
+    margin:auto;
 }
