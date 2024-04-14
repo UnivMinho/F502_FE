@@ -859,7 +859,8 @@ button {
     margin-bottom: 20px;
     padding: 10px 15px;
     border: 0px;
-    border: 1px solid #2b2278 !important;
+    border-radius: 20px;
+    border: 1px solid #020202 !important;
 }
 .massage-bt {
     width: 100%;
@@ -869,7 +870,8 @@ button {
     margin-bottom: 20px;
     padding: 10px 15px;
     border: 0px;
-    border: 1px solid #2b2278 !important;
+    border-radius: 20px;
+    border: 1px solid #020202 !important;
 }
 .send_btn {
     width: 170px;
@@ -888,7 +890,7 @@ button {
 }
 .send_btn a:hover {
     color: #ffffff;
-    background-color: #2b2278;
+    background-color: #020202;
 }
 /* contact section end */
 
@@ -1025,5 +1027,3 @@ button {
     background-color: #000000;
 }
 
-.jumbotron{
-}
