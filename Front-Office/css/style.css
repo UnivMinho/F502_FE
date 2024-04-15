@@ -545,24 +545,11 @@ button {
 /* blog section start */
 
 .blog_section {
+    padding-left: 5%;
     width: 100%;
     float: left;
-    background-image: url(../images/blog-bg.png);
     height: auto;
     background-repeat: no-repeat;
-    background-size: 100%;
-    padding-bottom: 345px;
-    padding-top: 200px;
-}
-
-.blog_taital {
-    width: 100%;
-    float: left;
-    font-size: 40px;
-    color: #ffffff;
-    font-weight: bold;
-    padding-top: 30px;
-    text-align: center;
 }
 
 .blog_text {
@@ -614,9 +601,10 @@ button {
     }
 }
 
-.margin_top_90{
-    margin-top: 90px;
+.card-title-blog {
+    font-size: 25px;
 }
+
 /* blog section end */
 
 
@@ -1091,4 +1079,9 @@ button {
 
 .card-text{
     margin:auto;
+}
+
+
+.card-content{
+    display: inline-block;
 }
