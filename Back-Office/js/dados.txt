@@ -1,0 +1,23 @@
+{
+  "dados": [
+    {
+      "id": "1",
+      "Codigo": "Adm24",
+      "Nome": "Captações",
+      "Atividade": "Futebol",
+      "Organizador": "José Barreirinho",
+      "Local": "Milhazes",
+      "Status": "Ativa",
+      "Data": "25/04/2020"
+    },{
+      "id": "2",
+      "Codigo": "Swim424",
+      "Nome": "Swim With Me",
+      "Atividade": "Aula de Natação",
+      "Organizador": "Miguel Miranda",
+      "Local": "Barcelos",
+      "Status": "Ativa",
+      "Data": "26/04/2024"
+    }
+  ]
+}
