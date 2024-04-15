@@ -545,33 +545,18 @@ button {
 /* blog section start */
 
 .blog_section {
+    padding-left: 5%;
+    padding-right: 5%;
     width: 100%;
     float: left;
-    background-image: url(../images/blog-bg.png);
     height: auto;
     background-repeat: no-repeat;
-    background-size: 100%;
-    padding-bottom: 345px;
-    padding-top: 200px;
-}
-
-.blog_taital {
-    width: 100%;
-    float: left;
-    font-size: 40px;
-    color: #ffffff;
-    font-weight: bold;
-    padding-top: 30px;
-    text-align: center;
 }
 
 .blog_text {
-    width: 80%;
-    margin: 0 auto;
-    font-size: 16px;
-    color: #ffffff;
+    font-size: 45px;
+    color: #000000;
     padding-top: 40px;
-    text-align: center;
 }
 
 .play_icon_main {
@@ -614,9 +599,14 @@ button {
     }
 }
 
-.margin_top_90{
-    margin-top: 90px;
+.card-title-blog {
+    font-size: 25px;
 }
+
+.img-center-blog {
+    border-radius: 15px;
+}
+
 /* blog section end */
 
 
@@ -1080,15 +1070,65 @@ button {
 
 .card-title{
     text-align: left;
+    font-size: 18px;
 }
 .card-title-price p, h5{
     display: inline-block;
 }
 .price{
+    font-size:18px;
   text-align: right;
   width: 25%;
+  font-weight: bold;
+  color: #000;
+  margin:0;
+}
+
+#location{
+    color: #000;
+    font-weight: bold;
+}
+
+#date{
+    color: #000;
+    font-weight: bold;
 }
 
 .card-text{
     margin:auto;
+}
+
+
+.card-content{
+    display: inline-block;
+}
+
+#card-activities{
+    border-radius: 10px;
+}
+
+.card-img-top{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.title-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.services_taital {
+    margin: 0;
+}
+
+.btn.btn-secondary.dropdown-toggle{
+    background-color:#ffffff;
+    color:#000;
+    border-color: #000;
+    border-radius: 10px;
+}
+
+.dropdown-menu{
+    text-align: center;
 }
