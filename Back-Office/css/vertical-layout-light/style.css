@@ -22379,6 +22379,12 @@ code {
   transition-duration: 250ms;
 }
 
+.btn{
+  color: #FFFFFF;
+  background-color: #3A6A36; 
+  margin-bottom: 1%;
+}
+
 .form-check .form-check-label input[type="checkbox"] + .input-helper:after {
   -webkit-transition: all;
   -moz-transition: all;

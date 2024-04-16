@@ -10,7 +10,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>Services</title>
+   <title>Atividades</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -21,7 +21,7 @@
    <!-- Responsive-->
    <link rel="stylesheet" href="css/responsive.css">
    <!-- fevicon -->
-   <link rel="icon" href="images/fevicon.png" type="image/gif" />
+   <link rel="icon" href="images/logo.png" type="image/gif" />
    <!-- Scrollbar Custom CSS -->
    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
    <!-- Tweaks for older IEs-->
@@ -81,19 +81,34 @@
    <!-- services section start -->
    <div class="services_section layout_padding">
       <div class="container">
-         <h1 class="services_taital">Atividades </h1>
+         <div class="title-button">
+            <h1 class="services_taital">Atividades</h1>
+            <div class="text-right">
+            <div class="dropdown" id="filter-activities">
+               <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+              Filtrar
+               </button>
+               <div class="dropdown-menu">
+                  <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something" checked>
+                     <label class="form-check-label">Caminhada</label>
+                  </div>
+               </div>
+            </div>
+            </div>
+         </div>
          <div class="services_section_2">
             <div class="row">
                <div class="col-md-4">
-                  <div class="card" style="width: 18rem;">
-                     <img src="images/img-3.png" class="card-img-top" alt="...">
+                  <div class="card" id="card-activities" style="width: 18rem;">
+                     <img src="images/img-walking.jpg" class="card-img-top" alt="...">
                      <div class="card-body">
                         <div class="card-title-price">
                        <h5 class="card-title"><strong>Guima Caminhada</strong></h5>
                         <p class="price">20€</p>
                      </div>
-                       <p class="card-text"><strong>Localização:</strong> Rua Dr.Mário Dias, Guimarães.</p>
-                       <p class="card-text"><strong>Data:</strong>22/10/2024</p>
+                       <p class="card-text"><strong id="location">Localização:</strong> Rua Dr.Mário Dias, Guimarães.</p>
+                       <p class="card-text"><strong id="date">Data:</strong>22/10/2024</p>
                        <div class="text-center">
                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
                         VER MAIS
