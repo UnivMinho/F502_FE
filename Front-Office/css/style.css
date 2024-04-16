@@ -616,15 +616,21 @@ button {
 }
 
 .accordion {
+    max-width: 60%;
     padding-top: 2%;
 }
 
 .card-faq {
-    border-radius: 7px;
+    border-color: #000;
+    border-radius: 5px;
 }
 
-.btn-custom-border {
-    border-color: black;
+.card-header-faq {
+    border-color: #000;
+}
+
+.btn-faq {
+    border-color: #000000;
 }
 
 /* blog section end */
