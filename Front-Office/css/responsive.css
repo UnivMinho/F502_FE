@@ -374,19 +374,13 @@
         padding-right: 15px;
     }
     .blog_section {
-        background-image: url(../images/blog-mobile-bg.png);
         background-size: cover;
-        padding: 50px 0px;
+        padding: 50px 0 px;
     }
     .blog_text {
         width: 100%;
     }
-    .play_icon_main {
-        margin-top: 40px;
-    }
-    .play_icon {
-        width: 145px;
-    }
+    
     .client_section_2 {
         padding: 30px 20px;
         margin-top: 50px;
@@ -572,7 +566,6 @@
         padding-right: 15px;
     }
     .blog_section {
-        background-image: url(../images/blog-mobile-bg.png);
         background-size: cover;
         padding: 50px 0px;
     }

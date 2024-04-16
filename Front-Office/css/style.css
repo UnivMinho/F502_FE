@@ -605,6 +605,26 @@ button {
 
 .img-center-blog {
     border-radius: 15px;
+    max-width: 60%;
+}
+
+.faqs {
+    margin-top: 10%;
+    font-size:25px;
+    font-weight: bold;
+    color: #000;
+}
+
+.accordion {
+    padding-top: 2%;
+}
+
+.card-faq {
+    border-radius: 7px;
+}
+
+.btn-custom-border {
+    border-color: black;
 }
 
 /* blog section end */
