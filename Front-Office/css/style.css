@@ -616,7 +616,7 @@ button {
 }
 
 .accordion {
-    max-width: 60%;
+    max-width: 40%;
     padding-top: 2%;
 }
 
@@ -630,7 +630,8 @@ button {
 }
 
 .btn-faq {
-    border-color: #000000;
+    color:#000 !important;
+    border: none !important;
 }
 
 /* blog section end */
