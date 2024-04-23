@@ -1,7 +1,6 @@
 body{
   margin: 0;
   padding: 0;
-  background: url(https://i.ibb.co/VQmtgjh/6845078.png) no-repeat;
   height: 100vh;
   font-family: sans-serif;
   background-size: cover;
@@ -13,7 +12,8 @@ body{
 @media screen and (max-width: 600px)
 {
   body{
-    background-size: cover, fixed}
+    background-size: cover, fixed
+  }
   }
   #particles-js{
     height: 100%
@@ -33,7 +33,7 @@ body{
   .user{
     margin: 0 auto;
     display: block;
-    margin-bottom: 20px
+    margin-bottom: 50px
   }
 
   .loginBox input{
@@ -99,14 +99,6 @@ body{
     text-align: center;
     display: block
   }
-
-  a:hover{
-    color: #00ffff
-  }
-  p{
-    color: #0000ff
-  }
-
   .submitButtonContainer {
     display: flex;
     align-items: center;
@@ -115,3 +107,6 @@ body{
     margin-right: -90px; /* Espaço entre o botão e a imagem */
   }
   
+  #imagemDeFundo{
+    width: 100%;
+  }
