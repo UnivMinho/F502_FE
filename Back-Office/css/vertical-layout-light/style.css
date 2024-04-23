@@ -11089,14 +11089,14 @@ fieldset:disabled .wizard > .actions a,
 
 .btn-primary:hover, .wizard > .actions a:hover {
   color: #fff;
-  background-color: #3f3e91;
-  border-color: #3b3a88;
+  background-color: #3A6A36;
+  border-color: #3A6A36;
 }
 
 .btn-primary:focus, .wizard > .actions a:focus, .btn-primary.focus, .wizard > .actions a.focus {
   color: #fff;
-  background-color: #3f3e91;
-  border-color: #3b3a88;
+  background-color: #3A6A36;
+  border-color: #3A6A36;
   box-shadow: 0 0 0 0.2rem rgba(102, 100, 184, 0.5);
 }
 
@@ -11314,8 +11314,8 @@ fieldset:disabled .wizard > .actions a,
 }
 
 .btn-light:hover {
-  color: #212529;
-  background-color: #e2e6ea;
+  color: #f8f9fa;
+  background-color: #ff4B4B !important;
   border-color: #dae0e5;
 }
 
@@ -23786,7 +23786,7 @@ dl li {
 }
 
 .modal .modal-dialog .modal-content .modal-body {
-  padding: 35px 26px;
+  padding: 3px 2px;
 }
 
 .modal .modal-dialog .modal-content .modal-footer {
@@ -30596,6 +30596,10 @@ div.tagsinput span.tag a {
   #settings-trigger {
     display: none;
   }
+}
+
+#btn-cancel{
+  background-color: gray;
 }
 
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
