@@ -30602,4 +30602,12 @@ div.tagsinput span.tag a {
   background-color: gray;
 }
 
+.editar-icon{
+  color: #373B3F;
+}
+
+.apagar-icon{
+  color: red;
+}
+
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

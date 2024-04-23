@@ -13,7 +13,7 @@ $(document).ready(function () {
         "data": null,
         "render": function (data, type, full, meta) {
           return '<i class="mdi mdi-pencil editar-icon" style="font-size: 24px; margin-right: 15px; cursor: pointer;"></i>' +
-            '<i class="mdi mdi-delete" style="font-size: 24px;"></i>';
+            '<i class="mdi mdi-delete apagar-icon" style="font-size: 24px;"></i>';
         }
       }
     ]
