@@ -367,5 +367,23 @@ $(function () {
         interval: 5000
      });
 
+/*video*/
+$(document).ready(function(){
+	$('.play_button').click(function(e){
+		 e.preventDefault();
+
+		 var video = $(this).find('.video_player')[0];
+
+		 if(video.paused){
+				video.play();
+				$(this).find('.play_icon_image').hide();
+		 } else {
+				video.pause();
+				$(this).find('.play_icon_image').show();
+		 }
+	});
+});
+
+
 
 });
