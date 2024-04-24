@@ -587,24 +587,32 @@ button {
 }
 
 .accordion {
-    max-width: 40%;
+    width: 40%;
     padding-top: 2%;
 }
 
 .card-faq {
     border-color: #000;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .card-header-faq {
     border-color: #000;
+    background-color: transparent;
 }
 
 .btn-faq {
     color:#000;
     border: none;
     background-color: transparent;
-    font-size: medium;
+    color: #000;
+    font-size: 15px;
+}
+
+.seta-faq{
+    margin-left: 120px;
+    color: #000000;
 }
 
 /* blog section end */
