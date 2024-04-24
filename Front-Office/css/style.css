@@ -601,8 +601,10 @@ button {
 }
 
 .btn-faq {
-    color:#000 !important;
-    border: none !important;
+    color:#000;
+    border: none;
+    background-color: transparent;
+    font-size: medium;
 }
 
 /* blog section end */
