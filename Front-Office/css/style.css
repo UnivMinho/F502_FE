@@ -1167,3 +1167,24 @@ button {
     text-align: center;
 
  }
+
+ .fa-solid.fa-right-to-bracket{
+    color: #ffffff;
+ }
+
+ #header-logo-login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+ }
+
+ .btn-entrar {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none !important;
+}
+
+.btn-entrar span {
+    margin-right: 5px;
+}
