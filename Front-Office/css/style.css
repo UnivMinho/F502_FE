@@ -1188,3 +1188,7 @@ button {
 .btn-entrar span {
     margin-right: 5px;
 }
+
+.btn-entrar:hover{
+    color:#ffffff;
+}
