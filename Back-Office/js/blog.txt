@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "Codigo": "Run123",
+      "Título": "Jogo de futebol SCBraga",
+      "Autor": "SCBraga",
+      "Status": "Publicada",
+      "Data de publicação": "5/05/2024"
+    },
+    {
+      "id": "2",
+      "Codigo": "Swim424",
+      "Título": "Swim With Me",
+      "Autor": "Miguel Miranda",
+      "Status": "Publicada",
+      "Data de publicação": "1/04/2024"
+    },
+    {
+      "id": "3",
+      "Codigo": "Pilates32",
+      "Título": "Zen Pilates",
+      "Autor": "Mariana Neiva",
+      "Status": "Publicada",
+      "Data de publicação": "11/02/2024"
+    },
+    {
+      "id": "4",
+      "Codigo": "Incs235",
+      "Título": "Projeto Maromba",
+      "Autor": "Bruno Alves",
+      "Status": "Publicada",
+      "Data de publicação": "28/03/2024"
+    },
+    {
+      "id": "5",
+      "Codigo": "Incs235",
+      "Título": "Sempre a Pedalar",
+      "Autor": "Miguel Oliveira",
+      "Status": "Publicada",
+      "Data de publicação": "20/07/2024"
+    }
+  ]
+}
