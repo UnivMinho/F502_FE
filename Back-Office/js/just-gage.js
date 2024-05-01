@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     pointer: true,
     gaugeWidthScale: 0.6,
     customSectors: [{
-      color: '#ff0000',
+      color: '3A6A36',
       lo: 50,
       hi: 100
     }, {
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       color: '#000'
     },
     customSectors: [{
-      color: "#ff0000",
+      color: "3A6A36",
       lo: 50,
       hi: 100
     }, {
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     reverse: true,
     gaugeWidthScale: 0.6,
     customSectors: [{
-      color: '#ff0000',
+      color: '3A6A36',
       lo: 50,
       hi: 100
     }, {
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     reverse: true,
     gaugeWidthScale: 1.3,
     customSectors: [{
-      color: "#ff0000",
+      color: "3A6A36",
       lo: 50000,
       hi: 100000
     }, {

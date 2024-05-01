@@ -580,7 +580,7 @@ function initMap() {
               "visibility": "on"
             },
             {
-              "hue": "#ff0000"
+              "hue": "3A6A36"
             },
             {
               "weight": 0.4

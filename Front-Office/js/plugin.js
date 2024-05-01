@@ -2726,7 +2726,7 @@ colors = jQuery.Color.names = {
 	navy: "#000080",
 	olive: "#808000",
 	purple: "#800080",
-	red: "#ff0000",
+	red: "3A6A36",
 	silver: "#c0c0c0",
 	teal: "#008080",
 	white: "#ffffff",

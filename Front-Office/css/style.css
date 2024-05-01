@@ -986,9 +986,7 @@ button {
     color: #ffffff;
 }
 
-.call_text a:hover {
-    color: #e27141;
-}
+
 
 
 /* footer section end */
@@ -1014,7 +1012,7 @@ button {
 }
 
 .copyright_text a:hover {
-    color: #e27141;
+    color: #3A6A36;
 }
 
 .btn.btn-success{
