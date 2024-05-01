@@ -133,10 +133,9 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="table-responsive">
-                      <table id="atividades" class="display expandable-table" style="width:100%">
+                      <table id="propostas" class="display expandable-table" style="width:100%">
                         <thead>
                           <tr>
-                            <th>Código</th>
                             <th>Nome</th>
                             <th>Atividade</th>
                             <th>Organizador</th>
@@ -159,11 +158,12 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!--Modal -->
-  <div class="modal fade" id="atividadesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  
+  <div class="modal fade" id="reverPropostasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg ">
       <div class="modal-content" id="atiModal">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Criar Atividade</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Rever Proposta</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -172,80 +172,7 @@
           <div class="card">
             <div class="card-body">
               <p class="card-description">
-                Preencha as informações da atividade
-              </p>
-              <form class="forms-sample row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <div class="form-group">
-                    <label for="exampleInputCodigo">Código</label>
-                    <input type="text" class="form-control" id="exampleInputCodigo" placeholder="Código">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputNomeAtividade">Nome da Atividade</label>
-                    <input type="text" class="form-control" id="exampleInputNomeAtividade"
-                      placeholder="Nome da Atividade">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputOrganizador">Organizador</label>
-                    <input type="text" class="form-control" id="exampleInputOrganizador"
-                      placeholder="Nome do organizador">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputLocal">Local</label>
-                    <input type="text" class="form-control" id="exampleInputLocal" placeholder="Local">
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <div class="form-group">
-                    <label for="exampleInputTipo">Tipo de atividade</label>
-                    <input type="text" class="form-control" id="exampleInputTipo" placeholder="Atividade">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputData">Data</label>
-                    <input type="date" class="form-control" id="exampleInputData" placeholder="Data">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputMaxParticipantes">Participantes (MAX)</label>
-                    <input type="text" class="form-control" id="exampleInputMaxParticipantes"
-                      placeholder="Participantes">
-                  </div>
-                  <div class="form-group">
-                    <label>Enviar Imagem</label>
-                    <input type="file" name="img[]" class="file-upload-default">
-                    <div class="input-group col-xs-12">
-                      <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                      <span class="input-group-append">
-                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                  <button class="btn btn-light" id="btn-cancel">Cancel</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="editarAtividadesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content" id="atiModal">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar Atividade</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="card">
-            <div class="card-body">
-              <p class="card-description">
-                Edite as informações da atividade
+                Reveja as informações da proposta
               </p>
               <form class="forms-sample row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -259,9 +186,9 @@
                       placeholder="Nome da Atividade">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputOrganizador">Organizador</label>
+                    <label for="exampleInputOrganizador">Proposto por:</label>
                     <input type="text" class="form-control" id="editarInputOrganizador"
-                      placeholder="Nome do organizador">
+                      placeholder="Proposto por">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputLocal">Local</label>
@@ -282,8 +209,13 @@
                     <input type="text" class="form-control" id="editarInputMaxParticipantes"
                       placeholder="Participantes">
                   </div>
+                    <div class="form-group">
+                      <label for="exampleInputHora">Horário</label>
+                      <input type="time" class="form-control" id="editarInputHora" placeholder="Hora">
+                    </div>
+                  </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12 text-center">
                   <button type="submit" class="btn btn-primary mr-2">Submit</button>
                   <button class="btn btn-light" id="btn-cancel">Cancel</button>
                 </div>
@@ -294,7 +226,6 @@
       </div>
     </div>
   </div>
-
 
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
@@ -312,7 +243,7 @@
   <script src="js/settings.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="js/atividades.js"></script>
+  <script src="js/propostas.js"></script>
   <!-- End custom js for this page-->
 </body>
 

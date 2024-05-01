@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  
   var table = $('#atividades').DataTable({
     "ajax": "js/data.txt",
     "columns": [
@@ -37,4 +38,5 @@ $(document).ready(function () {
     // Abrir a modal
     $('#editarAtividadesModal').modal('show');
   });
+
 });
