@@ -11089,8 +11089,8 @@ fieldset:disabled .wizard > .actions a,
 
 .btn-primary:hover, .wizard > .actions a:hover {
   color: #fff;
-  background-color: #3A6A36;
-  border-color: #3A6A36;
+  background-color: #27A62C;
+  border-color: #FFFFFF;
 }
 
 .btn-primary:focus, .wizard > .actions a:focus, .btn-primary.focus, .wizard > .actions a.focus {

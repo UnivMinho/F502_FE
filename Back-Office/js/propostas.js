@@ -33,6 +33,7 @@ $(document).ready(function () {
         $('#editarInputMaxParticipantes').val(rowData.Nparticipantes);
         $('#editarInputData').val(dataFormatada);
         $('#editarInputHora').val(rowData.Hora);
+        $('#editarDescricao').val(rowData.Descricao);
 
 
         // Abrir a modal

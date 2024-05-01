@@ -10,7 +10,8 @@
     "Status": "Por aprovar",
     "Nparticipantes": "150",
     "Data": "25/04/2020",
-    "Hora": "14:00"
+    "Hora": "14:00",
+    "Descricao": "Uma atividade para todas as idades. O evento irá contar com profissionais de corrida conhecidos."
   },
   {
     "id": "2",
@@ -22,7 +23,8 @@
     "Status": "Por aprovar",
     "Nparticipantes": "10",
     "Data": "15/06/2020",
-    "Hora": "10:30"
+    "Hora": "10:30",
+    "Descricao": "Uma atividade para todas as idades. O evento irá decorrer na parte da manhã para não apanharmos a hora de calor."
   },
   {
     "id": "3",
@@ -34,7 +36,8 @@
     "Status": "Por aprovar",
     "Nparticipantes": "40",
     "Data": "10/08/2020",
-    "Hora": "18:45"
+    "Hora": "18:45",
+    "Descricao": "Uma atividade para todas as idades. O evento tem o objetivo de sensibilizar as pessoas para se movimentarem mais e deixar de andar de carro"
   },
   {
     "id": "4",
@@ -46,7 +49,8 @@
     "Status": "Por aprovar",
     "Nparticipantes": "10",
     "Data": "05/07/2020",
-    "Hora": "8:00"
+    "Hora": "8:00",
+    "Descricao": "Uma atividade para todas as idades. O evento irá contar com profissionais de natação conhecidos."
   },
   {
     "id": "5",
@@ -58,7 +62,8 @@
     "Nparticipantes": "15",
     "Status": "Por aprovar",
     "Data": "20/09/2020",
-    "Hora": "09:30"
+    "Hora": "09:30",
+    "Descricao": "Uma atividade para todas as idades."
   },
   {
     "id": "6",
@@ -70,7 +75,8 @@
     "Status": "Por aprovar",
     "Nparticipantes": "20",
     "Data": "30/10/2020",
-    "Hora": "10:30"
+    "Hora": "10:30",
+    "Descricao": "Uma atividade para todas as idades."
   }
   ]
 }
