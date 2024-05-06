@@ -107,6 +107,16 @@ body{
     margin-right: -90px; /* Espaço entre o botão e a imagem */
   }
   
-  #imagemDeFundo{
+ /* #imagemDeFundo{
     width: 100%;
-  }
+  }*/
+  .imgdeFundo {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: -1; 
+    background-size: cover;
+    background-position: center;
+}
