@@ -99,11 +99,11 @@ body{
     text-align: center;
     display: block
   }
-  .submitButtonContainer {
+  #submitButtonContainer {
     display: flex;
     align-items: center;
   }
-  .submitButtonContainer input[type="submit"] {
+  #submitButtonContainer input[type="submit"] {
     margin-right: -90px; /* Espaço entre o botão e a imagem */
   }
   

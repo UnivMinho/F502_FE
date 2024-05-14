@@ -24,6 +24,9 @@
    <link rel="shortcut icon" href="images/logocores2.png" />
 </head>
 <body>
+  <!-- Script para carregar o SDK do Google Sign-In -->
+  <script src="https://accounts.google.com/gsi/client" async></script>
+
   <img class="imgdeFundo" id="imagemDeFundo" src="images/FundoCima_mobile.png">
   <div class="loginBox"> 
     <img class="user" src="images/logo.png">
@@ -33,14 +36,30 @@
           <input id="pass" type="password" name="Password" placeholder="Password">
         </div>
         <p>Login com:</p> 
-        <div class="submitButtonContainer">
-          <input type="submit" name="submit" value="Google">
-          <img src="images/logo-google.png" alt="Logo Google">
-        </div>
-      </form>
-      
-       
-</div>
-</body>
+    
+      </form>   
+  </div>
 
+  <script>
+    function handleCredentialResponse(response) {
+      console.log("Encoded JWT ID token: " + response.credential);
+    }
+    window.onload = function () {
+      google.accounts.id.initialize({
+        client_id: "10382157412-gqc4mt336cl69psamqja4v95knivl0p9.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"),
+        { theme: "outline", size: "large" }  // customization attributes
+      );
+      google.accounts.id.prompt(); // also display the One Tap dialog
+    }
+  </script>
+  <div id="buttonDiv"></div>
+
+
+  <!-- Seu arquivo JavaScript -->
+  <script src="login.js"></script>
+</body>
 </html>
