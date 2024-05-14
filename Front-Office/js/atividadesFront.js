@@ -48,7 +48,6 @@ function preencherModal(atividade) {
       <p><strong>Participantes:</strong> ${atividade.Nparticipantes}</p>
       
   `;
-  return;
 }
 
 
@@ -58,7 +57,7 @@ function criarCard(atividade) {
 
   var cardInnerHtml = `
       <div class="card" style="width: 18rem;">
-          <img src="${atividade.imagem}" class="card-img-top" alt="...">
+          <img src="images/img-walking.jpg" class="card-img-top" alt="...">
           <div class="card-body">
               <div class="card-title-price">
                   <h5 class="card-title"><strong>${atividade.Nome}</strong></h5>
