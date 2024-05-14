@@ -25,41 +25,22 @@
 </head>
 <body>
   <!-- Script para carregar o SDK do Google Sign-In -->
-  <script src="https://accounts.google.com/gsi/client" async></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
 
   <img class="imgdeFundo" id="imagemDeFundo" src="images/FundoCima_mobile.png">
   <div class="loginBox"> 
     <img class="user" src="images/logo.png">
     <form action="login.php" method="post">
-        <div class="inputBox">
-          <input id="uname" type="text" name="Username" placeholder="Username">
-          <input id="pass" type="password" name="Password" placeholder="Password">
-        </div>
-        <p>Login com:</p> 
-    
-      </form>   
+      <div class="inputBox">
+        <input id="uname" type="text" name="Username" placeholder="Username">
+        <input id="pass" type="password" name="Password" placeholder="Password">
+      </div>
+    </form>  
+    <div id="buttonGoogle"></div> 
   </div>
 
-  <script>
-    function handleCredentialResponse(response) {
-      console.log("Encoded JWT ID token: " + response.credential);
-    }
-    window.onload = function () {
-      google.accounts.id.initialize({
-        client_id: "10382157412-gqc4mt336cl69psamqja4v95knivl0p9.apps.googleusercontent.com",
-        callback: handleCredentialResponse
-      });
-      google.accounts.id.renderButton(
-        document.getElementById("buttonDiv"),
-        { theme: "outline", size: "large" }  // customization attributes
-      );
-      google.accounts.id.prompt(); // also display the One Tap dialog
-    }
-  </script>
-  <div id="buttonDiv"></div>
+  <script src="js/login.js"></script>
 
-
-  <!-- Seu arquivo JavaScript -->
-  <script src="login.js"></script>
 </body>
 </html>
