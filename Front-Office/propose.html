@@ -33,8 +33,7 @@
    <link rel="stylesheet" href="css/owl.theme.default.min.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
       media="screen">
-      <link rel="shortcut icon" href="images/logocores2.png" />
-
+   <link rel="shortcut icon" href="images/logocores2.png" />
 </head>
 
 <body>
@@ -84,38 +83,49 @@
    <div class="contact_section layout_padding">
       <div class="container">
          <h1 class="contact_taital">Propõe uma Atividade</h1>
-         <div class="email_text">
+         
+         <form id="propostasForm">
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Nome do evento" name="Evento">
+               <input type="text" class="email-bt" placeholder="Nome do evento" id="inputPropostaNome" name="Evento" required>
+            </div>
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                  <input type="date" class="form-control" id="inputPropostaData" name="Date" required>
+               </div>
+               <div class="form-group col-md-6">
+                  <input type="time" class="form-control" placeholder="Horário" id="inputPropostaHorario" name="Horas" required>
+               </div>
             </div>
             <div class="form-group">
-               <input type="date" class="email-bt" id="date_input" name="Date">
-           </div>
-            <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Horário" name="Horas">
+               <input type="text" class="email-bt" placeholder="Tipo de atividade (ex. Futebol, Zumba, Natação, ...)" id="inputPropostaTipo" name="Type" required>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Tipo de atividade(ex. Futebol, Zumba, Natação,...)" name="Type">
+               <input type="text" class="email-bt" placeholder="Local do Evento" id="inputPropostaLocal" name="Local" required>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Nº máximo de participantes" name="Participantes">
+               <input type="text" class="email-bt" placeholder="Nº máximo de participantes" id="inputPropostaMaxParticipantes" name="Participantes" required>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Nº telemóvel" name="Telemovel">
+               <input type="text" class="email-bt" placeholder="Nº telemóvel" id="inputPropostaTelemovel" name="Telemovel" required>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Email" name="Contacto">
+               <input type="text" class="email-bt" placeholder="Email" id="inputPropostaEmail" name="Contacto" required>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Organizador" name="Organizador">
+               <input type="text" class="email-bt" placeholder="Organizador" id="inputPropostaOrganizador" name="Organizador" required>
             </div>
             <div class="form-group">
-               <textarea class="email-bt" placeholder="Descreve-nos o teu evento" rows="5" id="comment" name="descrição"></textarea>
+               <textarea class="email-bt" placeholder="Descreve-nos o teu evento" rows="5" id="inputPropostaDescricao" name="descrição" required></textarea>
             </div>
-            <div class="send_btn"><a href="#">Enviar</a></div>
-         </div>
+            <button type="submit" class="send_btn">Enviar</button>
+            <div id="successAlert" class="alert alert-success text-center" role="alert" style="display: none;">
+               A sua proposta foi enviada com sucesso!
+            </div>
+         </form>
       </div>
    </div>
+   
+   
    <!-- contact section end -->
    <!-- footer section start -->
    <div class="footer_section layout_padding">
@@ -154,6 +164,7 @@
    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
    <script src="js/custom.js"></script>
    <!-- javascript -->
+   <script src="js/propose.js"></script>
    <script src="js/owl.carousel.js"></script>
    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>

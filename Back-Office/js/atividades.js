@@ -1,6 +1,5 @@
 $(document).ready(function () {
-
-  // Preencher a tabela com os dados
+  // Inicializa a tabela com dados do LocalStorage
   var table = $('#atividades').DataTable({
     "data": getLocalStorage(),
     "columns": [
@@ -10,12 +9,17 @@ $(document).ready(function () {
       { "data": "Organizador" },
       { "data": "Local" },
       { "data": "Estado" },
-      { "data": "Data" },
+      {
+        "data": "Data",
+        "render": function (data, type, row) {
+          return formatDateToDisplay(data);
+        }
+      },
       {
         "data": null,
         "render": function (data, type, full, meta) {
           return '<i class="mdi mdi-pencil editar-icon" style="font-size: 24px; margin-right: 15px; cursor: pointer;"></i>' +
-            '<i class="mdi mdi-delete apagar-icon" style="font-size: 24px; cursor: pointer;"></i>';
+                 '<i class="mdi mdi-delete apagar-icon" style="font-size: 24px; cursor: pointer;"></i>';
         }
       }
     ]
@@ -31,7 +35,29 @@ $(document).ready(function () {
     localStorage.setItem('atividade', JSON.stringify(data));
   }
 
-  // Abrir modal de edição
+  // Função para formatar data para o input de tipo date (YYYY-MM-DD)
+  function formatDateToInput(dateStr) {
+    if (dateStr.includes('/')) { // Formato DD/MM/YYYY
+      const [dd, mm, yyyy] = dateStr.split('/');
+      return `${yyyy}-${mm}-${dd}`;
+    } else if (dateStr.includes('-')) { // Formato YYYY-MM-DD
+      return dateStr;
+    }
+    return dateStr;
+  }
+
+  // Função para formatar data para exibição (DD/MM/YYYY)
+  function formatDateToDisplay(dateStr) {
+    if (dateStr.includes('-')) { // Formato YYYY-MM-DD
+      const [yyyy, mm, dd] = dateStr.split('-');
+      return `${dd}/${mm}/${yyyy}`;
+    } else if (dateStr.includes('/')) { // Formato DD/MM/YYYY
+      return dateStr;
+    }
+    return dateStr;
+  }
+
+  // Abrir modal de edição com dados preenchidos
   function openEditModal(rowData) {
     $('#editarInputCodigo').val(rowData.Codigo);
     $('#editarInputNomeAtividade').val(rowData.Nome);
@@ -42,50 +68,38 @@ $(document).ready(function () {
     $('#editarInputHorario').val(rowData.Horario);
     $('#editarInputPreco').val(rowData.Preco);
     $('#editarInputDescricao').val(rowData.Descricao);
-    $('#editarInputData').val(rowData.Data);
+    $('#editarInputData').val(formatDateToInput(rowData.Data)); // Formatar data corretamente
 
     $('#editarAtividadesModal').modal('show');
   }
 
-  //Captação de click no icon de editar
+  // Evento de click no ícone de editar
   $('#atividades').on('click', '.editar-icon', function () {
     var rowData = table.row($(this).parents('tr')).data();
     openEditModal(rowData);
     $('#editarAtividadesModal').data('rowIndex', table.row($(this).parents('tr')).index());
   });
 
-  // Editar atividade
+  // Submeter o formulário de edição de atividade
   $('#editarAtividadesModal form').on('submit', function (e) {
     e.preventDefault();
 
-    var codigo = $('#editarInputCodigo').val();
-    var nomeAtividade = $('#editarInputNomeAtividade').val();
-    var organizador = $('#editarInputOrganizador').val();
-    var local = $('#editarInputLocal').val();
-    var tipo = $('#editarInputTipo').val();
-    var data = $('#editarInputData').val().split("-").reverse().join("/");
-    var horario = $('#editarInputHorario').val();
-    var descricao = $('#editarInputDescricao').val();
-    var preco = $('#editarInputPreco').val();
-    var estado = "Programada";
-    var maxParticipantes = $('#editarInputMaxParticipantes').val();
-    var rowIndex = $('#editarAtividadesModal').data('rowIndex');
-
     var newData = {
-      "Codigo": codigo,
-      "Nome": nomeAtividade,
-      "Organizador": organizador,
-      "Local": local,
-      "Atividade": tipo,
-      "Data": data,
-      "Horario": horario,
-      "Descricao": descricao,
-      "Preco": preco,
-      "Estado": estado,
-      "maxParticipantes": maxParticipantes
+      "Codigo": $('#editarInputCodigo').val(),
+      "Nome": $('#editarInputNomeAtividade').val(),
+      "Organizador": $('#editarInputOrganizador').val(),
+      "Local": $('#editarInputLocal').val(),
+      "Atividade": $('#editarInputTipo').val(),
+      "Data": formatDateToDisplay($('#editarInputData').val()), // Formatar data para exibição
+      "Horario": $('#editarInputHorario').val(),
+      "Descricao": $('#editarInputDescricao').val(),
+      "Preco": $('#editarInputPreco').val(),
+      "Estado": "Programada",
+      "maxParticipantes": $('#editarInputMaxParticipantes').val()
     };
 
     var data = getLocalStorage();
+    var rowIndex = $('#editarAtividadesModal').data('rowIndex');
     data[rowIndex] = newData;
 
     saveToLocalStorage(data);
@@ -93,49 +107,27 @@ $(document).ready(function () {
     $('#editarAtividadesModal').modal('hide');
   });
 
-  // Apresentar o formulário vazio
+  // Limpar o formulário de criação ao abrir o modal
   $('#atividadesModal').on('show.bs.modal', function () {
-    $('#exampleInputCodigo').val('');
-    $('#exampleInputNomeAtividade').val('');
-    $('#exampleInputOrganizador').val('');
-    $('#exampleInputLocal').val('');
-    $('#exampleInputTipo').val('');
-    $('#exampleInputData').val('');
-    $('#exampleInputMaxParticipantes').val('');
-    $('#exampleInputPreco').val('');
-    $('#exampleInputDescricao').val('');
-    $('#exampleInputHorario').val('');
-
+    $('#atividadesModal form')[0].reset();
   });
 
-  //Criar atividade
+  // Submeter o formulário de criação de atividade
   $('#atividadesModal form').on('submit', function (e) {
     e.preventDefault();
 
-    var codigo = $('#exampleInputCodigo').val();
-    var nomeAtividade = $('#exampleInputNomeAtividade').val();
-    var organizador = $('#exampleInputOrganizador').val();
-    var local = $('#exampleInputLocal').val();
-    var tipo = $('#exampleInputTipo').val();
-    var data = $('#exampleInputData').val();
-    var horario = $('#exampleInputHorario').val();
-    var descricao = $('#exampleInputDescricao').val();
-    var preco = $('#exampleInputPreco').val();
-    var estado = "Programada";
-    var maxParticipantes = $('#exampleInputMaxParticipantes').val();
-
     var atividade = {
-      "Codigo": codigo,
-      "Nome": nomeAtividade,
-      "Organizador": organizador,
-      "Local": local,
-      "Atividade": tipo,
-      "Data": data,
-      "Estado": estado,
-      "Horario": horario,
-      "Descricao": descricao,
-      "Preco": preco,
-      "maxParticipantes": maxParticipantes
+      "Codigo": $('#exampleInputCodigo').val(),
+      "Nome": $('#exampleInputNomeAtividade').val(),
+      "Organizador": $('#exampleInputOrganizador').val(),
+      "Local": $('#exampleInputLocal').val(),
+      "Atividade": $('#exampleInputTipo').val(),
+      "Data": formatDateToDisplay($('#exampleInputData').val()), // Formatar data para exibição
+      "Estado": "Programada",
+      "Horario": $('#exampleInputHorario').val(),
+      "Descricao": $('#exampleInputDescricao').val(),
+      "Preco": $('#exampleInputPreco').val(),
+      "maxParticipantes": $('#exampleInputMaxParticipantes').val()
     };
 
     var data = getLocalStorage();
@@ -146,7 +138,7 @@ $(document).ready(function () {
     $('#atividadesModal').modal('hide');
   });
 
-  // Apagar atividade
+  // Função para apagar uma atividade
   function apagarAtividade(index) {
     var data = getLocalStorage();
     data.splice(index, 1);
@@ -154,7 +146,7 @@ $(document).ready(function () {
     table.clear().rows.add(data).draw();
   }
 
-  // Captar click do icon para apagar
+  // Evento de click no ícone para apagar
   $('#atividades').on('click', '.apagar-icon', function () {
     var rowIndex = table.row($(this).parents('tr')).index();
     apagarAtividade(rowIndex);

@@ -1219,3 +1219,63 @@ button {
 .btn-entrar:hover{
     color:#ffffff;
 }
+
+.contact_section {
+    padding: 60px 0;
+ }
+ 
+ .email_text {
+    max-width: 600px;
+    margin: 0 auto;
+ }
+ 
+ .email-bt, .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    box-sizing: border-box; 
+ }
+ 
+ .form-row {
+    display: flex;
+
+    gap: 0px;
+ }
+ 
+ .form-row .form-group {
+    flex: 1;
+ }
+
+ #propostasForm {
+    max-width: 600px; 
+    margin: auto;
+}
+
+/* Estilos para o botão de envio */
+.send_btn {
+    display: block;
+    width: 20%;
+    padding: 10px;
+    background-color: #000000; 
+    color: #fff;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.send_btn:hover {
+    background-color: #555555; /* Cor de hover */
+}
+ 
+ 
+ 
+ 
+ 
+
+
+
+
