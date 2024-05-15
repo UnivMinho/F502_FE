@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>GoHelp Admin</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/feather/feather.css">
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="images/myimages/logocores2.png" />
+   <!-- plugins:css -->
+   <link rel="stylesheet" href="vendors/feather/feather.css">
+   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+   <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+   <!-- Plugin css for this page -->
+   <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+   <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+   <!-- End plugin css for this page -->
+   <!-- inject:css -->
+   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+   <!-- endinject -->
+   <link rel="shortcut icon" href="images/myimages/logocores2.png" />
 </head>
 <body>
   <div class="container-scroller">
@@ -123,8 +121,8 @@
                 <div class="card">
                   <div class="card-body">
                     <p class="card-title">Testemunhos</p>
-                    <div class="col-lg-12" data-toggle="modal" data-target="#testemunhosModal" style="text-align: right;">
-                    <btn type="button" class="btn">Criar</btn>
+                    <div class="col-lg-12" style="text-align: right;">
+                    <btn type="button" class="btn" data-toggle="modal" data-target="#testemunhosModal" >Criar</btn>
                     </div>
                     <p class="card-description"> Seleciona o testemunho a editar</p>
                     <div class="col-lg-12" on-click="index.html" style="text-align: right;">   
@@ -137,7 +135,7 @@
                               <tr>
                                 <th>Nome</th>
                                 <th>Data da publicação</th>
-                                <th></th>
+                                <th>Editar/Apagar</th>                
                               </tr>
                             </thead>
                         </table>
@@ -152,7 +150,7 @@
       </div>
     <!-- page-body-wrapper ends -->
   </div>
-    <!--Modal -->
+    <!-- Modal de Criação -->
     <div class="modal fade" id="testemunhosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content" id="atiModal">
@@ -170,36 +168,75 @@
                 </p>
                 <form class="forms-sample row">
                   <div class="col-12">
-                      <div class="form-group">
-                          <label for="exampleInputName">Nome</label>
-                          <input type="text" class="form-control" id="exampleInputName" placeholder="Nome">
+                    <div class="form-group">
+                      <label for="exampleInputName">Nome</label>
+                      <input type="text" class="form-control" id="exampleInputName" placeholder="Nome">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleTextarea">Texto da publicação</label>
+                      <textarea class="form-control" id="exampleTextarea" rows="8" placeholder="Escreva o texto da publicação"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputJob">Profissão</label>
+                      <input type="text" class="form-control" id="exampleInputJob" placeholder="Profissão">
+                    </div>
+                    <div class="form-group">
+                      <label>Enviar Imagem</label>
+                      <input type="file" name="img[]" class="file-upload-default">
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                        </span>
                       </div>
-                      <div class="form-group">
-                          <label for="exampleTextarea">Texto da publicação</label>
-                          <textarea class="form-control" id="exampleTextarea" rows="8" placeholder="Escreva o texto da publicação"></textarea>
-                      </div>
+                    </div>
                   </div>
-              </form> 
-              <div class="form-group">
-                <label>Enviar Imagem</label>
-                <input type="file" name="img[]" class="file-upload-default">
-                <div class="input-group col-xs-12">
-                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                    <span class="input-group-append">
-                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                    </span>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="exampleInputJob">Profissão</label>
-                <input type="text" class="form-control" id="exampleInputJob" placeholder="Profissão">
-            </div>
-            
-              </div>
                   <div class="col-lg-12 text-center">
                     <button type="submit" class="btn btn-primary mr-2">Create</button>
-                    <button class="btn btn-light" id="btn-cancel">Cancel</button>
+                    <button class="btn btn-light" data-dismiss="modal">Cancel</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div class="modal fade" id="editarTestemunhosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content" id="atiModal">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar Testemunho</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card">
+              <div class="card-body">
+                <p class="card-description">
+                  Editar o testemunho 
+                </p>
+                <form class="forms-sample row">
+                  <div class="col-12">
+                    <div class="form-group">
+                      <label for="editarInputNome">Nome</label>
+                      <input type="text" class="form-control" id="editarInputNome" placeholder="Nome">
+                    </div>
+                    <div class="form-group">
+                      <label for="editarInputTexto">Texto da publicação</label>
+                      <textarea class="form-control" id="editarInputTexto" rows="8" placeholder="Escreva o texto da publicação"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="editarInputProfissao">Profissão</label>
+                      <input type="text" class="form-control" id="editarInputProfissao" placeholder="Profissão">
+                    </div>
+                  </div>
+                  <div class="col-lg-12 text-center">
+                    <button type="submit" class="btn btn-primary mr-2">Salvar</button>
+                    <button class="btn btn-light" data-dismiss="modal">Cancel</button>
                   </div>
                 </form>
               </div>
