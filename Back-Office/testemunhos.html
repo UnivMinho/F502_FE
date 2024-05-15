@@ -182,7 +182,7 @@
                     </div>
                     <div class="form-group">
                       <label>Enviar Imagem</label>
-                      <input type="file" name="img[]" class="file-upload-default">
+                      <input type="file" name="img[]" class="file-upload-default"  id="exampleInputImage">
                       <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                         <span class="input-group-append">
@@ -192,7 +192,7 @@
                     </div>
                   </div>
                   <div class="col-lg-12 text-center">
-                    <button type="submit" class="btn btn-primary mr-2">Create</button>
+                    <button type="submit" class="btn btn-primary mr-2">Salvar</button>
                     <button class="btn btn-light" data-dismiss="modal">Cancel</button>
                   </div>
                 </form>
@@ -232,6 +232,20 @@
                     <div class="form-group">
                       <label for="editarInputProfissao">Profissão</label>
                       <input type="text" class="form-control" id="editarInputProfissao" placeholder="Profissão">
+                    </div>
+                    <div class="form-group">
+                      <label for="editarInputImagem">Imagem Atual</label>
+                      <div id="editarImagemPreview" style="margin-bottom: 10px;">
+                        <img src="" alt="Imagem Testemunho" style="width: 100px; height: 100px; object-fit: cover;">
+                      </div>
+                      <label for="editarInputImagem">Alterar Imagem</label>
+                      <input type="file" id="editarInputImagem" name="img" class="file-upload-default">
+                      <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                        <span class="input-group-append">
+                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                        </span>
+                      </div>
                     </div>
                   </div>
                   <div class="col-lg-12 text-center">

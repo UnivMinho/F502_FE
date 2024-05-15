@@ -1,4 +1,14 @@
 $(document).ready(function () {
+    // Função para converter imagem em Base64
+    function getBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
+    }
+  
     // Carregar dados dos testemunhos do localStorage
     var testemunhosData = JSON.parse(localStorage.getItem('testemunhosData')) || [];
     var table = $('#testemunhos').DataTable({
@@ -9,8 +19,10 @@ $(document).ready(function () {
         {
           "data": null,
           "render": function (data, type, full, meta) {
-            return '<i class="mdi mdi-pencil editar-icon" style="font-size: 24px; cursor: pointer; margin-right: 10px;"></i>' +
-            '<i class="mdi mdi-delete apagar-icon" style="font-size: 24px; cursor: pointer;"></i>'
+            return '<div class="icon-container">' +
+              '<i class="mdi mdi-pencil editar-icon" style="font-size: 24px; cursor: pointer; margin-right: 10px;"></i>' +
+              '<i class="mdi mdi-delete apagar-icon" style="font-size: 24px; cursor: pointer;"></i>' +
+              '</div>';
           }
         }
       ]
@@ -22,17 +34,25 @@ $(document).ready(function () {
       $('#editarInputNome').val(data.Nome);
       $('#editarInputTexto').val(data.Texto);
       $('#editarInputProfissao').val(data.Profissao);
+      if (data.Imagem) {
+        $('#editarImagemPreview img').attr('src', data.Imagem);
+      } else {
+        $('#editarImagemPreview img').attr('src', '');
+      }
       $('#editarTestemunhosModal').modal('show');
     });
   
     // Evento para criar um novo testemunho
-    $('#testemunhosModal form').on('submit', function (e) {
+    $('#testemunhosModal form').on('submit', async function (e) {
       e.preventDefault();
+      var file = document.getElementById('exampleInputImage').files[0];
+      var base64Image = file ? await getBase64(file) : '';
       var newTestemunho = {
         Nome: $('#exampleInputName').val(),
         DataPublicacao: new Date().toLocaleDateString(),
         Texto: $('#exampleTextarea').val(),
-        Profissao: $('#exampleInputJob').val()
+        Profissao: $('#exampleInputJob').val(),
+        Imagem: base64Image
       };
       testemunhosData.push(newTestemunho);
       localStorage.setItem('testemunhosData', JSON.stringify(testemunhosData));
@@ -41,14 +61,17 @@ $(document).ready(function () {
     });
   
     // Evento para editar um testemunho existente
-    $('#editarTestemunhosModal form').on('submit', function (e) {
+    $('#editarTestemunhosModal form').on('submit', async function (e) {
       e.preventDefault();
       var row = table.row('.selected');
+      var file = document.getElementById('editarInputImagem').files[0];
+      var base64Image = file ? await getBase64(file) : row.data().Imagem;
       var updatedTestemunho = {
         Nome: $('#editarInputNome').val(),
         DataPublicacao: row.data().DataPublicacao,
         Texto: $('#editarInputTexto').val(),
-        Profissao: $('#editarInputProfissao').val()
+        Profissao: $('#editarInputProfissao').val(),
+        Imagem: base64Image
       };
       var rowIndex = row.index();
       testemunhosData[rowIndex] = updatedTestemunho;
@@ -74,6 +97,18 @@ $(document).ready(function () {
         table.$('tr.selected').removeClass('selected');
         $(this).addClass('selected');
       }
+    });
+  
+    // Abrir seletor de arquivos ao clicar no botão de upload
+    $('.file-upload-browse').on('click', function () {
+      var fileInput = $(this).closest('.form-group').find('.file-upload-default');
+      fileInput.trigger('click');
+    });
+  
+    // Atualizar o campo de texto com o nome do arquivo selecionado
+    $('.file-upload-default').on('change', function () {
+      var fileName = $(this).val().split('\\').pop();
+      $(this).closest('.input-group').find('.file-upload-info').val(fileName);
     });
   });
   
