@@ -27,9 +27,6 @@ $(document).ready(function () {
     localStorage.setItem('atividade', JSON.stringify(data));
   }
 
-  $('#atividades').on('click', '#btn-cancel', function () {
-    $('#editarAtividadesModal').modal('hide');
-  });
 
   // Função para abrir o modal de edição com as informações da atividade clicada
   function openEditModal(rowData) {
@@ -59,18 +56,6 @@ $(document).ready(function () {
     $('#editarAtividadesModal').data('rowIndex', table.row($(this).parents('tr')).index());
   });
 
-  // Função para editar uma atividade
-  function editarAtividade(rowIndex, newData) {
-    var data = getLocalStorage();
-
-    data[rowIndex] = newData;
-
-    saveToLocalStorage(data);
-
-    // Atualizar a tabela
-    table.clear().rows.add(data).draw();
-  }
-
   // Submissão do formulário de edição
   $('#editarAtividadesModal form').on('submit', function (e) {
     e.preventDefault();
@@ -96,15 +81,10 @@ $(document).ready(function () {
       "maxParticipantes": maxParticipantes
     };
 
-    console.log(newData);
-    console.log(rowIndex);
-
     var data = getLocalStorage();
-
     data[rowIndex] = newData;
 
     saveToLocalStorage(data);
-
     // Atualizar a tabela
     table.clear().rows.add(data).draw();
 
