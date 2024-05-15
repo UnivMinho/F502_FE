@@ -1057,15 +1057,44 @@ button {
     background-color: #27A62C;
 }
 
-/* Estilos específicos para o banner*/
+/* Adicione qualquer estilo personalizado necessário aqui */
+
+/* Estilos específicos para o banner */
 .mini_banner {
     position: fixed;
     top: 50%;
     right: 0;
+    border: 1px solid #ddd;
+    overflow: hidden;
     transform: translateY(-50%);
     width: 370px; 
+    max-width: 100%;
     z-index: 9999;
+    transition: width 0.5s ease; /* Adicionando transição para animação suave */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
+.mini_banner.minimized {
+    width: 100px;
+
+}
+.mini_banner_content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: opacity 0.5s ease;
+}
+.mini_banner.minimized .mini_banner_content {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+}
+.btn-secondary .arrow {
+    font-size: 18px;
+}
+
+
+
 
 @media (max-width: 767px) {
     .mini_banner {
