@@ -146,7 +146,7 @@
                             <th>Local</th>
                             <th>Status</th>
                             <th>Data</th>
-                            <th></th>
+                            <th>Editar/Apagar</th>
                           </tr>
                         </thead>
                       </table>
@@ -159,9 +159,9 @@
         </div>
       </div>
     </div>
-    <!-- page-body-wrapper ends -->
   </div>
-  <!--Modal -->
+
+  <!-- Modal de criação -->
   <div class="modal fade" id="atividadesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content" id="atiModal">
@@ -197,6 +197,10 @@
                     <label for="exampleInputLocal">Local</label>
                     <input type="text" class="form-control" id="exampleInputLocal" placeholder="Local">
                   </div>
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Descrição</label>
+                      <textarea class="form-control" id="exampleInputDescricao" rows="4"></textarea>
+                    </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                   <div class="form-group">
@@ -204,13 +208,20 @@
                     <input type="text" class="form-control" id="exampleInputTipo" placeholder="Atividade">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputData">Data</label>
-                    <input type="date" class="form-control" id="exampleInputData" placeholder="Data">
+                    <label for="exampleInputDataHorario">Data e Horário</label>
+                    <div class="input-group">
+                      <input type="date" class="form-control" id="exampleInputData" placeholder="Data">
+                      <input type="time" class="form-control" id="exampleInputHorario" placeholder="Horário">
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputMaxParticipantes">Participantes (MAX)</label>
                     <input type="text" class="form-control" id="exampleInputMaxParticipantes"
                       placeholder="Participantes">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPreco">Preço</label>
+                    <input type="text" class="form-control" id="exampleInputPreco" placeholder="Preço">
                   </div>
                   <div class="form-group">
                     <label>Enviar Imagem</label>
@@ -235,6 +246,7 @@
     </div>
   </div>
 
+<!-- Modal de edição -->
   <div class="modal fade" id="editarAtividadesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
       <div class="modal-content" id="atiModal">
@@ -270,6 +282,10 @@
                     <label for="exampleInputLocal">Local</label>
                     <input type="text" class="form-control" id="editarInputLocal" placeholder="Local">
                   </div>
+                  <div class="form-group">
+                    <label for="exampleTextarea1">Descrição</label>
+                    <textarea class="form-control" id="editarInputDescricao" rows="4"></textarea>
+                  </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                   <div class="form-group">
@@ -277,13 +293,20 @@
                     <input type="text" class="form-control" id="editarInputTipo" placeholder="Atividade">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputData">Data</label>
-                    <input type="date" class="form-control" id="editarInputData" placeholder="Data">
+                    <label for="exampleInputDataHorario">Data e Horário</label>
+                    <div class="input-group">
+                      <input type="date" class="form-control" id="editarInputData">
+                      <input type="time" class="form-control" id="editarInputHorario" placeholder="Horário">
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputMaxParticipantes">Participantes (MAX)</label>
                     <input type="text" class="form-control" id="editarInputMaxParticipantes"
                       placeholder="Participantes">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPreco">Preço</label>
+                    <input type="text" class="form-control" id="editarInputPreco" placeholder="Preço">
                   </div>
                 </div>
                 <div class="col-lg-12 text-center">
