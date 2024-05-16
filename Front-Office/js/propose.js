@@ -29,7 +29,8 @@ $(document).ready(function () {
             "Descricao": $('#inputPropostaDescricao').val(),
             "maxParticipantes": $('#inputPropostaMaxParticipantes').val(),
             "Telemovel": $('#inputPropostaTelemovel').val(),
-            "Email": $('#inputPropostaEmail').val()
+            "Email": $('#inputPropostaEmail').val(),
+            "Preco": $('inputPropostaPreco').val()
         };
 
         var data = getLocalStorage();

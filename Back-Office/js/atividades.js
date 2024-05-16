@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  
   // Inicializa a tabela com dados do LocalStorage
   var table = $('#atividades').DataTable({
     "data": getLocalStorage(),

@@ -83,39 +83,52 @@
    <div class="contact_section layout_padding">
       <div class="container">
          <h1 class="contact_taital">Propõe uma Atividade</h1>
-         
+
          <form id="propostasForm">
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Nome do evento" id="inputPropostaNome" name="Evento" required>
+               <input type="text" class="form-control" placeholder="Nome do evento" id="inputPropostaNome" name="Evento"
+                  required>
             </div>
             <div class="form-row">
                <div class="form-group col-md-6">
                   <input type="date" class="form-control" id="inputPropostaData" name="Date" required>
                </div>
                <div class="form-group col-md-6">
-                  <input type="time" class="form-control" placeholder="Horário" id="inputPropostaHorario" name="Horas" required>
+                  <input type="time" class="form-control" placeholder="Horário" id="inputPropostaHorario" name="Horas"
+                     required>
                </div>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Tipo de atividade (ex. Futebol, Zumba, Natação, ...)" id="inputPropostaTipo" name="Type" required>
+               <input type="text" class="form-control" placeholder="Tipo de atividade (ex. Futebol, Zumba, Natação, ...)"
+                  id="inputPropostaTipo" name="Type" required>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Local do Evento" id="inputPropostaLocal" name="Local" required>
+               <input type="text" class="form-control" placeholder="Local do Evento" id="inputPropostaLocal" name="Local"
+                  required>
+            </div>
+            <div class="form-row">
+               <div class="form-group col-md-6">
+                  <input type="text" class="form-control" placeholder="Nº máximo de participantes"
+                     id="inputPropostaMaxParticipantes" name="Participantes" required>
+               </div>
+               <div class="form-group col-md-6">
+                  <input type="text" class="form-control" placeholder="Preço" id="inputPropostaPreco" name="Preço" required>
+               </div>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Nº máximo de participantes" id="inputPropostaMaxParticipantes" name="Participantes" required>
+               <input type="text" class="form-control" placeholder="Nº telemóvel" id="inputPropostaTelemovel"
+                  name="Telemovel" required>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Nº telemóvel" id="inputPropostaTelemovel" name="Telemovel" required>
+               <input type="text" class="form-control" placeholder="Email" id="inputPropostaEmail" name="Contacto" required>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Email" id="inputPropostaEmail" name="Contacto" required>
+               <input type="text" class="form-control" placeholder="Organizador" id="inputPropostaOrganizador"
+                  name="Organizador" required>
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Organizador" id="inputPropostaOrganizador" name="Organizador" required>
-            </div>
-            <div class="form-group">
-               <textarea class="email-bt" placeholder="Descreve-nos o teu evento" rows="5" id="inputPropostaDescricao" name="descrição" required></textarea>
+               <textarea class="form-control" placeholder="Descreve-nos o teu evento" rows="5" id="inputPropostaDescricao"
+                  name="descrição" required></textarea>
             </div>
             <button type="submit" class="send_btn">Enviar</button>
             <div id="successAlert" class="alert alert-success text-center" role="alert" style="display: none;">
@@ -124,8 +137,8 @@
          </form>
       </div>
    </div>
-   
-   
+
+
    <!-- contact section end -->
    <!-- footer section start -->
    <div class="footer_section layout_padding">
