@@ -104,8 +104,10 @@ $(document).ready(function () {
         var rowIndex = $('#reverPropostasModal').data('rowIndex');
         var dataA = getLocalStorageAtividades();
         
+        console.log(rowIndex);
+        console.log(dataP[rowIndex].Estado);
 
-        if(dataP[rowIndex].Estado == "Por aprovar"){
+        if(dataP[rowIndex].Estado == "Por Aprovar"){
 
             dataP[rowIndex] = propostaAtualizada;
             dataA.push(novaAtividade);
@@ -116,9 +118,10 @@ $(document).ready(function () {
         }else if (dataP[rowIndex].Estado == "Aprovada"){
             alert("Esta atividade já foi aprovada!");
         }else{
+            console.log(dataP[rowIndex].Estado);
             alert("Esta atividade já foi rejeitada!");
         }
-        
+
         $('#reverPropostasModal').modal('hide');
     });
 
@@ -135,7 +138,7 @@ $(document).ready(function () {
             table.clear().rows.add(dataP).draw();
         }else if (dataP[rowIndex].Estado == "Aprovada"){
             alert("Esta atividade já foi aprovada!");
-        }else{
+        }else if (dataP[rowIndex].Estado == "Rejeitada"){
             alert("Esta atividade já foi rejeitada!");
         }
         $('#reverPropostasModal').modal('hide');
