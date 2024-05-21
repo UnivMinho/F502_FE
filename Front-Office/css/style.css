@@ -1133,6 +1133,12 @@ button {
     margin:auto;
 }
 
+.card{
+    margin-top:10px;
+    max-width: 100%; /* ou alguma largura máxima desejada */
+    height: 100%;
+}
+
 
 .card-content{
     display: inline-block;
