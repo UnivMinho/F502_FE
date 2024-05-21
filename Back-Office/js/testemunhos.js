@@ -1,4 +1,15 @@
 $(document).ready(function () {
+  function limparFormularioCriacao() {
+    $('#exampleInputName').val('');
+    $('#exampleTextarea').val('');
+    $('#exampleInputJob').val('');
+    $('#exampleInputImage').val('');
+    $('.file-upload-info').val('');
+    $('#exampleInputImage').closest('.form-group').find('.file-upload-info').val('');
+    $('#testemunhosModal form')[0].reset(); // Limpar o formulário
+    $('#exampleInputImage').closest('.form-group').find('.file-upload-info').val(''); // Limpar o nome do arquivo
+}
+
     // Função para converter imagem em Base64
     function getBase64(file) {
       return new Promise((resolve, reject) => {
@@ -41,7 +52,9 @@ $(document).ready(function () {
       }
       $('#editarTestemunhosModal').modal('show');
     });
-  
+
+
+
     // Evento para criar um novo testemunho
     $('#testemunhosModal form').on('submit', async function (e) {
       e.preventDefault();
@@ -110,5 +123,30 @@ $(document).ready(function () {
       var fileName = $(this).val().split('\\').pop();
       $(this).closest('.input-group').find('.file-upload-info').val(fileName);
     });
+
+    $('#testemunhosModal').on('show.bs.modal', function () {
+      limparFormularioCriacao();
+  });
+
+  $(document).ready(function () {
+    // Evento para exibir a pré-visualização da imagem e atualizar o campo "Upload Image" ao selecionar um arquivo
+    $('#editarInputImagem').on('change', function () {
+        var input = this;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#editarImagemPreview img').attr('src', e.target.result);
+                $('#editarImagemPreview').show(); // Exibe a pré-visualização da imagem
+            }
+            reader.readAsDataURL(input.files[0]);
+            // Atualizar o campo "Upload Image" com o nome do arquivo selecionado
+            $('.file-upload-info').val(input.files[0].name);
+        }
+    });
+});
+
+
+
+  
   });
   
