@@ -335,4 +335,45 @@
    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 </body>
 
+<!-- Adicionar uma seção onde os testemunhos serão exibidos -->
+<section id="testemunhos-section">
+   <div class="container">
+     <h2>Testemunhos</h2>
+     <div id="testemunhos-container" class="row">
+       <!-- Os testemunhos serão inseridos dinamicamente aqui -->
+     </div>
+   </div>
+ </section>
+
+ <!-- plugins:js -->
+ <script src="vendors/js/vendor.bundle.base.js"></script>
+ <!-- endinject -->
+ <!-- Custom js para esta página-->
+ <script src="js/testemunhos.js"></script>
+ <!-- Fim do custom js para esta página-->
+
+ <script>
+   document.addEventListener('DOMContentLoaded', function () {
+     // Buscar testemunhos do localStorage
+     var testemunhosData = JSON.parse(localStorage.getItem('testemunhosData')) || [];
+     var testemunhosContainer = document.getElementById('testemunhos-container');
+
+     // Renderizar testemunhos
+     testemunhosData.forEach(function(testemunho) {
+       var testemunhoHTML = `
+         <div class="col-md-4">
+           <div class="testemunho">
+             <img src="${testemunho.Imagem}" alt="${testemunho.Nome}" class="testemunho-imagem">
+             <h3>${testemunho.Nome}</h3>
+             <h4>${testemunho.Profissao}</h4>
+             <p>${testemunho.Texto}</p>
+             <p><small>${testemunho.DataPublicacao}</small></p>
+           </div>
+         </div>
+       `;
+       testemunhosContainer.insertAdjacentHTML('beforeend', testemunhoHTML);
+     });
+   });
+ </script>
+
 </html>
