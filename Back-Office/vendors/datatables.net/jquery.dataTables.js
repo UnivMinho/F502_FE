@@ -11536,7 +11536,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "A mostrar _START_ a _END_ de _TOTAL_ atividades",
+			"sInfo": "A mostrar _START_ a _END_ de _TOTAL_ resultados",
 	
 	
 			/**
@@ -11697,7 +11697,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Mostrar _MENU_ atividades",
+			"sLengthMenu": "Mostrar _MENU_ resultados",
 	
 	
 			/**
@@ -11788,7 +11788,7 @@
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.searchPlaceholder
 			 */
-			"sSearchPlaceholder": "Atividade",
+			"sSearchPlaceholder": "",
 	
 	
 			/**

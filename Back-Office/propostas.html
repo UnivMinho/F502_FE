@@ -2,267 +2,255 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>GoHelp Admin</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="vendors/feather/feather.css">
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="images/myimages/logocores2.png" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>GoHelp Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="vendors/feather/feather.css">
+    <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="images/myimages/logocores2.png" />
 </head>
 
 <body>
-  <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/myimages/logocores2.png" class="mr-2"
-            alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/myimages/logocores2.png"
-            alt="logo" /></a>
-      </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+    <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/myimages/logocores2.png" class="mr-2" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/myimages/logocores2.png" alt="logo" /></a>
+            </div>
+            <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
           <span class="icon-menu"></span>
         </button>
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-none d-lg-block">
-            <div class="input-group">
-              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                <span class="input-group-text" id="search">
+                <ul class="navbar-nav mr-lg-2">
+                    <li class="nav-item nav-search d-none d-lg-block">
+                        <div class="input-group">
+                            <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                                <span class="input-group-text" id="search">
                   <i class="icon-search"></i>
                 </span>
-              </div>
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now"
-                aria-label="search" aria-describedby="search">
-            </div>
-          </li>
-        </ul>
-        <ul class="navbar-nav navbar-nav-right">
-          <!--Imagem do user com a droplist de settings e logout-->
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile" />
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
-              </a>
-              <a class="dropdown-item">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-        </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-          data-toggle="offcanvas">
+                            </div>
+                            <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav navbar-nav-right">
+                    <!--Imagem do user com a droplist de settings e logout-->
+                    <li class="nav-item nav-profile dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                            <img src="images/faces/face28.jpg" alt="profile" />
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                            <a class="dropdown-item">
+                                <i class="ti-settings text-primary"></i> Settings
+                            </a>
+                            <a class="dropdown-item">
+                                <i class="ti-power-off text-primary"></i> Logout
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>
         </button>
-      </div>
-    </nav>
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial -->
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Atividades</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="atividades.html">Atividades</a></li>
-                <li class="nav-item"> <a class="nav-link" href="propostas.html">Propostas</a></li>
-              </ul>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
-              aria-controls="form-elements">
-              <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">Utilizadores</span>
-              <i class="menu-arrow"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="icon-bar-graph menu-icon"></i>
-              <span class="menu-title">Blog</span>
-              <i class="menu-arrow"></i>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-              <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">Testemunhos</span>
-              <i class="menu-arrow"></i>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- partial -->
-      <div class="main-panel">
-        <div class="content-wrapper">
-          <div class="col-md-12 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <p class="card-title">Lista de Propostas</p>
-                <div class="row">
-                  <div class="col-12">
-                    <div class="table-responsive">
-                      <table id="propostas" class="display expandable-table" style="width:100%">
-                        <thead>
-                          <tr>
-                            <th>Nome</th>
-                            <th>Atividade</th>
-                            <th>Organizador</th>
-                            <th>Local</th>
-                            <th>Status</th>
-                            <th>Data</th>
-                            <th>Horário</th>
-                            <th>Ver/Apagar</th>
-                          </tr>
-                        </thead>
-                      </table>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial -->
+            <!-- partial:partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="icon-grid menu-icon"></i>
+                            <span class="menu-title">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                            <i class="fa-solid fa-person-hiking menu-icon"></i>
+                            <i class="icon-layout menu-icon"></i>
+                            <span class="menu-title">Atividades</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="atividades.html">Atividades</a></li>
+                                <li class="nav-item"> <a class="nav-link" href="propostas.html">Propostas</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="utilizadores.html">
+                            <i class=" icon-columns menu-icon "></i>
+                            <span class="menu-title ">Utilizadores</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">
+                            <i class="icon-bar-graph menu-icon"></i>
+                            <span class="menu-title">Blog</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " data-toggle="collapse " href="#tables " aria-expanded="false " aria-controls="tables ">
+                            <i class="icon-grid-2 menu-icon "></i>
+                            <span class="menu-title ">Testemunhos</span>
+                            <i class="menu-arrow "></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            <div class="main-panel ">
+                <div class="content-wrapper ">
+                    <div class="col-md-12 grid-margin stretch-card ">
+                        <div class="card ">
+                            <div class="card-body ">
+                                <p class="card-title ">Lista de Propostas</p>
+                                <div class="row ">
+                                    <div class="col-12 ">
+                                        <div class="table-responsive ">
+                                            <table id="propostas " class="display expandable-table " style="width:100% ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nome</th>
+                                                        <th>Atividade</th>
+                                                        <th>Organizador</th>
+                                                        <th>Local</th>
+                                                        <th>Status</th>
+                                                        <th>Data</th>
+                                                        <th>Horário</th>
+                                                        <th>Ver/Apagar</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+        <!-- page-body-wrapper ends -->
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!--Modal -->
+    <!--Modal -->
 
-  <div class="modal fade" id="reverPropostasModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg ">
-      <div class="modal-content" id="atiModal">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Rever Proposta</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+    <div class="modal fade " id="reverPropostasModal " tabindex="-1 " aria-labelledby="exampleModalLabel " aria-hidden="true ">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg ">
+            <div class="modal-content " id="atiModal ">
+                <div class="modal-header ">
+                    <h5 class="modal-title " id="exampleModalLabel ">Rever Proposta</h5>
+                    <button type="button " class="close " data-dismiss="modal " aria-label="Close ">
+            <span aria-hidden="true ">&times;</span>
           </button>
-        </div>
-        <div class="modal-body">
-          <div class="card">
-            <div class="card-body">
-              <p class="card-description">
-                Reveja as informações da proposta
-              </p>
-              <form class="forms-sample row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <div class="form-group">
-                    <label for="exampleInputCodigo">Código</label>
-                    <input type="text" class="form-control" id="editarInputCodigo" placeholder="Código">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputNomeAtividade">Nome da Atividade</label>
-                    <input type="text" class="form-control" id="editarInputNomeAtividade"
-                      placeholder="Nome da Atividade">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputOrganizador">Proposto por:</label>
-                    <input type="text" class="form-control" id="editarInputOrganizador" placeholder="Proposto por">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputLocal">Local</label>
-                    <input type="text" class="form-control" id="editarInputLocal" placeholder="Local">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputTelemovel">Telemóvel</label>
-                    <input type="text" class="form-control" id="editarInputTelemovel"
-                      placeholder="Nº Telemóvel">
-                  </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <div class="form-group">
-                    <label for="exampleInputTipo">Tipo de atividade</label>
-                    <input type="text" class="form-control" id="editarInputTipo" placeholder="Atividade">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputDataHorario">Data e Horário</label>
-                    <div class="input-group">
-                      <input type="date" class="form-control" id="editarInputData">
-                      <input type="time" class="form-control" id="editarInputHorario" placeholder="Horário">
+                <div class="modal-body ">
+                    <div class="card ">
+                        <div class="card-body ">
+                            <p class="card-description ">
+                                Reveja as informações da proposta
+                            </p>
+                            <form class="forms-sample row ">
+                                <div class="col-lg-6 col-md-6 col-sm-12 ">
+                                    <div class="form-group ">
+                                        <label for="exampleInputCodigo ">Código</label>
+                                        <input type="text " class="form-control " id="editarInputCodigo " placeholder="Código ">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="exampleInputNomeAtividade ">Nome da Atividade</label>
+                                        <input type="text " class="form-control " id="editarInputNomeAtividade " placeholder="Nome da Atividade ">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="exampleInputOrganizador ">Proposto por:</label>
+                                        <input type="text " class="form-control " id="editarInputOrganizador " placeholder="Proposto por ">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="exampleInputLocal ">Local</label>
+                                        <input type="text " class="form-control " id="editarInputLocal " placeholder="Local ">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="exampleInputTelemovel ">Telemóvel</label>
+                                        <input type="text " class="form-control " id="editarInputTelemovel " placeholder="Nº Telemóvel ">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 ">
+                                    <div class="form-group ">
+                                        <label for="exampleInputTipo ">Tipo de atividade</label>
+                                        <input type="text " class="form-control " id="editarInputTipo " placeholder="Atividade ">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="exampleInputDataHorario ">Data e Horário</label>
+                                        <div class="input-group ">
+                                            <input type="date " class="form-control " id="editarInputData ">
+                                            <input type="time " class="form-control " id="editarInputHorario " placeholder="Horário ">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="exampleInputMaxParticipantes ">Participantes (MAX)</label>
+                                        <input type="text " class="form-control " id="editarInputMaxParticipantes " placeholder="Participantes ">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="exampleInputPreco ">Preço</label>
+                                        <input type="text " class="form-control " id="editarInputPreco " placeholder="Preço ">
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="exampleInputEmail ">Email</label>
+                                        <input type="text " class="form-control " id="editarInputEmail " placeholder="Email ">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 ">
+                                    <div class="form-group ">
+                                        <label for="exampleTextarea1 ">Descrição</label>
+                                        <textarea class="form-control " id="editarInputDescricao " rows="4 "></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 text-center ">
+                                    <button type="submit " class="btn btn-primary mr-2 " id="btn-approve ">Aprovar</button>
+                                    <button class="btn btn-light " id="btn-cancel ">Rejeitar</button>
+                                </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputMaxParticipantes">Participantes (MAX)</label>
-                    <input type="text" class="form-control" id="editarInputMaxParticipantes"
-                      placeholder="Participantes">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPreco">Preço</label>
-                    <input type="text" class="form-control" id="editarInputPreco"
-                      placeholder="Preço">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail">Email</label>
-                    <input type="text" class="form-control" id="editarInputEmail"
-                      placeholder="Email">
-                  </div>
-                </div>
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                  <div class="form-group">
-                    <label for="exampleTextarea1">Descrição</label>
-                    <textarea class="form-control" id="editarInputDescricao" rows="4"></textarea>
-                  </div>
-                </div>
-                <div class="col-lg-12 text-center">
-                  <button type="submit" class="btn btn-primary mr-2" id="btn-approve">Aprovar</button>
-                  <button class="btn btn-light" id="btn-cancel">Rejeitar</button>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <!-- plugins:js -->
-  <script src="vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="vendors/datatables.net/jquery.dataTables.js"></script>
-  <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-  <script src="js/dataTables.select.min.js"></script>
+    <!-- plugins:js -->
+    <script src="vendors/js/vendor.bundle.base.js "></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="vendors/datatables.net/jquery.dataTables.js "></script>
+    <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js "></script>
+    <script src="js/dataTables.select.min.js "></script>
 
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/template.js"></script>
-  <script src="js/settings.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="js/propostas.js"></script>
-  <!-- End custom js for this page-->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="js/off-canvas.js "></script>
+    <script src="js/hoverable-collapse.js "></script>
+    <script src="js/template.js "></script>
+    <script src="js/settings.js "></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="js/propostas.js "></script>
+    <!-- End custom js for this page-->
 </body>
 
 </html>
