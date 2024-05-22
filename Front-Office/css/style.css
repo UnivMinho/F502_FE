@@ -574,6 +574,14 @@ button {
     font-size: 25px;
 }
 
+.card-blog {
+    /*margin-left: 15%;
+    margin-bottom: 5%;*/
+    max-width: 500px;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
 .img-center-blog {
     border-radius: 15px;
     max-width: 60%;
