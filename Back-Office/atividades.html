@@ -225,7 +225,7 @@
                   </div>
                   <div class="form-group">
                     <label>Enviar Imagem</label>
-                    <input type="file" name="img[]" class="file-upload-default">
+                    <input type="file" name="img[]" class="file-upload-default" id="imageUpload">
                     <div class="input-group col-xs-12">
                       <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
                       <span class="input-group-append">
@@ -307,6 +307,17 @@
                   <div class="form-group">
                     <label for="exampleInputPreco">Preço</label>
                     <input type="text" class="form-control" id="editarInputPreco" placeholder="Preço" required>
+                  </div>
+                  <div class="form-group">
+                    <label>Alterar Imagem</label>
+                    <input type="file" name="img[]" class="file-upload-default" id="editImageUpload">
+                    <div class="input-group col-xs-12">
+                      <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                      <span class="input-group-append">
+                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                      </span>
+                    </div>
+                    <img id="editPreviewImage" src="#" alt="Pré-visualização da Imagem" style="display:none; margin-top: 10px; max-width: 100%;">
                   </div>
                 </div>
                 <div class="col-lg-12 text-center">

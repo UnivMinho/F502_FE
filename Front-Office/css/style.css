@@ -1301,6 +1301,21 @@ button {
     border-radius: 50%; /* Cria um círculo */
 }
 
+.rotated {
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Ajuste a altura conforme necessário */
+    object-fit: cover; /* Isto garante que a imagem preencha o container sem distorção */
+ }
+  
+.card {
+    width: 18rem;
+}
+
 
  
  

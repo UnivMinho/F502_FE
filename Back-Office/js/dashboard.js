@@ -276,4 +276,141 @@ function getRandomColors(count) {
     });
 
   });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    atualizarEstatisticas();
+  });
+  
+  function getLocalStorage() {
+    return JSON.parse(localStorage.getItem('atividade')) || [];
+  }
+  
+  function atualizarEstatisticas() {
+    const atividades = getLocalStorage();
+    const hoje = new Date().toISOString().split('T')[0];
+    let atividadesHoje = 0;
+    let capacidadeAtividades = 0;
+    let participantesTotais = 52;
+  
+    atividades.forEach(atividade => {
+      if (formatarData(atividade.Data) === hoje) {
+        atividadesHoje++;
+      }
+      capacidadeAtividades += parseInt(atividade.maxParticipantes, 10);
+      participantesTotais += atividade.participantes ? parseInt(atividade.participantes, 10) : 0;
+    });
+  
+    document.getElementById('atividadesHoje').textContent = atividadesHoje;
+    document.getElementById('atividadesTotais').textContent = atividades.length;
+    document.getElementById('capacidadeAtividades').textContent = capacidadeAtividades;
+    document.getElementById('participantesTotais').textContent = participantesTotais;
+  
+    // Aqui você pode calcular e atualizar o percentual de 30 dias, se necessário
+    const percentual30Dias = calcularPercentual30Dias(atividades);
+    document.getElementById('percentual30Dias').textContent = `${percentual30Dias.toFixed(2)}% (30 dias)`;
+  
+    const percentualParticipantes = calcularPercentualParticipantes(participantesTotais);
+    document.getElementById('percentualParticipantes').textContent = `${percentualParticipantes.toFixed(2)}% (30 dias)`;
+  }
+  
+  function formatarData(data) {
+    const [dia, mes, ano] = data.split('/');
+    return `${ano}-${mes}-${dia}`;
+  }
+  
+  function calcularPercentual30Dias(atividades) {
+    // Implemente a lógica para calcular o percentual de 30 dias, se necessário
+    // Aqui está um exemplo simples de como isso pode ser feito
+    const hoje = new Date();
+    const trintaDiasAtras = new Date(hoje.setDate(hoje.getDate() - 30)).toISOString().split('T')[0];
+    let atividadesUltimos30Dias = 0;
+  
+    atividades.forEach(atividade => {
+      if (formatarData(atividade.Data) >= trintaDiasAtras) {
+        atividadesUltimos30Dias++;
+      }
+    });
+  
+    return (atividadesUltimos30Dias / atividades.length) * 100;
+  }
+  
+  function calcularPercentualParticipantes(participantesTotais) {
+    // Implemente a lógica para calcular o percentual de participantes, se necessário
+    // Aqui está um exemplo simples de como isso pode ser feito
+    const participantesUltimos30Dias = 10; // Suponha um valor fixo para exemplo
+    return (participantesUltimos30Dias / participantesTotais) * 100;
+  }
+  
+  
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    atualizarEstatisticas();
+  });
+  
+  function getLocalStorage() {
+    return JSON.parse(localStorage.getItem('atividade')) || [];
+  }
+  
+  function atualizarEstatisticas() {
+    const atividades = getLocalStorage();
+    const hoje = new Date().toISOString().split('T')[0];
+    let atividadesHoje = 0;
+    let capacidadeAtividades = 0;
+    let participantesTotais = 52;
+  
+    atividades.forEach(atividade => {
+      if (formatarData(atividade.Data) === hoje) {
+        atividadesHoje++;
+      }
+      capacidadeAtividades += parseInt(atividade.maxParticipantes, 10);
+      participantesTotais += atividade.participantes ? parseInt(atividade.participantes, 10) : 0;
+    });
+  
+    document.getElementById('atividadesHoje').textContent = atividadesHoje;
+    document.getElementById('atividadesTotais').textContent = atividades.length;
+    document.getElementById('capacidadeAtividades').textContent = capacidadeAtividades;
+    document.getElementById('participantesTotais').textContent = participantesTotais;
+  
+    // Aqui você pode calcular e atualizar o percentual de 30 dias, se necessário
+    const percentual30Dias = calcularPercentual30Dias(atividades);
+    document.getElementById('percentual30Dias').textContent = `${percentual30Dias.toFixed(2)}% (30 dias)`;
+  
+    const percentualParticipantes = calcularPercentualParticipantes(participantesTotais);
+    document.getElementById('percentualParticipantes').textContent = `${percentualParticipantes.toFixed(2)}% (30 dias)`;
+  }
+  
+  function formatarData(data) {
+    const [dia, mes, ano] = data.split('/');
+    return `${ano}-${mes}-${dia}`;
+  }
+  
+  function calcularPercentual30Dias(atividades) {
+    // Implemente a lógica para calcular o percentual de 30 dias, se necessário
+    // Aqui está um exemplo simples de como isso pode ser feito
+    const hoje = new Date();
+    const trintaDiasAtras = new Date(hoje.setDate(hoje.getDate() - 30)).toISOString().split('T')[0];
+    let atividadesUltimos30Dias = 0;
+  
+    atividades.forEach(atividade => {
+      if (formatarData(atividade.Data) >= trintaDiasAtras) {
+        atividadesUltimos30Dias++;
+      }
+    });
+  
+    return (atividadesUltimos30Dias / atividades.length) * 100;
+  }
+  
+  function calcularPercentualParticipantes(participantesTotais) {
+    // Implemente a lógica para calcular o percentual de participantes, se necessário
+    // Aqui está um exemplo simples de como isso pode ser feito
+    const participantesUltimos30Dias = 10; // Suponha um valor fixo para exemplo
+    return (participantesUltimos30Dias / participantesTotais) * 100;
+  }
+  
+  
+
+  
+  
+
 })(jQuery);

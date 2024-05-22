@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  
+  var uploadedImageBase64 = "";
+
   // Inicializa a tabela com dados do LocalStorage
   var table = $('#atividades').DataTable({
     "data": getLocalStorage(),
@@ -71,6 +72,14 @@ $(document).ready(function () {
     $('#editarInputDescricao').val(rowData.Descricao);
     $('#editarInputData').val(formatDateToInput(rowData.Data)); // Formatar data corretamente
 
+    if (rowData.Imagem) {
+      uploadedImageBase64 = rowData.Imagem;
+      $('#editPreviewImage').attr('src', uploadedImageBase64).show();
+    } else {
+      uploadedImageBase64 = "";
+      $('#editPreviewImage').hide();
+    }
+
     $('#editarAtividadesModal').modal('show');
   }
 
@@ -96,7 +105,8 @@ $(document).ready(function () {
       "Descricao": $('#editarInputDescricao').val(),
       "Preco": $('#editarInputPreco').val(),
       "Estado": "Programada",
-      "maxParticipantes": $('#editarInputMaxParticipantes').val()
+      "maxParticipantes": $('#editarInputMaxParticipantes').val(),
+      "Imagem": uploadedImageBase64
     };
 
     var data = getLocalStorage();
@@ -111,6 +121,9 @@ $(document).ready(function () {
   // Limpar o formulário de criação ao abrir o modal
   $('#atividadesModal').on('show.bs.modal', function () {
     $('#atividadesModal form')[0].reset();
+    uploadedImageBase64 = "";
+    $('#previewImage').hide();
+    $('#imageUpload').siblings('.file-upload-info').val(''); // Limpa o nome do arquivo carregado
   });
 
   // Submeter o formulário de criação de atividade
@@ -128,7 +141,8 @@ $(document).ready(function () {
       "Horario": $('#exampleInputHorario').val(),
       "Descricao": $('#exampleInputDescricao').val(),
       "Preco": $('#exampleInputPreco').val(),
-      "maxParticipantes": $('#exampleInputMaxParticipantes').val()
+      "maxParticipantes": $('#exampleInputMaxParticipantes').val(),
+      "Imagem": uploadedImageBase64
     };
 
     var data = getLocalStorage();
@@ -151,5 +165,38 @@ $(document).ready(function () {
   $('#atividades').on('click', '.apagar-icon', function () {
     var rowIndex = table.row($(this).parents('tr')).index();
     apagarAtividade(rowIndex);
+  });
+
+  // Função para carregar a imagem e convertê-la para base64
+  function readURL(input, previewElement) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        uploadedImageBase64 = e.target.result;
+        $(previewElement).attr('src', e.target.result).show(); // Exibir a imagem
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  // Evento de mudança no input de arquivo
+  $("#imageUpload").change(function () {
+    readURL(this, '#previewImage');
+    var fileName = $(this).val().split('\\').pop();
+    $(this).siblings('.file-upload-info').val(fileName); // Define o nome do arquivo carregado
+  });
+
+  $("#editImageUpload").change(function () {
+    readURL(this, '#editPreviewImage');
+    var fileName = $(this).val().split('\\').pop();
+    $(this).siblings('.file-upload-info').val(fileName); // Define o nome do arquivo carregado
+  });
+
+  // Evento de click no botão de upload
+  $(".file-upload-browse").on('click', function () {
+    var file = $(this).parents().find('.file-upload-default');
+    file.trigger('click');
   });
 });
