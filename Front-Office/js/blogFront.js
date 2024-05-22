@@ -19,7 +19,6 @@ function exibirBlog() {
         container.appendChild(col);
     });
 
-    // Adicionar manipulador de evento de clique aos botões "Ler Mais"
     const botoesVerMais = document.querySelectorAll('.ver-mais');
     botoesVerMais.forEach(function(botao) {
         botao.addEventListener('click', function() {
@@ -39,23 +38,22 @@ function preencherModalBlog(blog) {
 }
 
 function criarCardBlog(blog, index) {
-    const maxWords = 20; // Defina aqui o número máximo de palavras
+    const maxWords = 20;
 
-    // Trunca o texto se tiver mais palavras que maxWords e adiciona "..." no final
     let truncatedText = blog.Texto.split(' ').slice(0, maxWords).join(' ');
     if (blog.Texto.split(' ').length > maxWords) {
         truncatedText += '...';
     }
 
     const card = document.createElement('div');
-    card.className = 'card-blog'; // Classe do card Bootstrap
+    card.className = 'card-blog';
     card.style.width = '35rem';
     card.innerHTML = `
-        <img src="images/Blog-1.png" class="card-img-top" alt="Imagem Evento" style="border-radius: 15px">
+        <img src="images/Blog-1.png" class="card-img-top img-fluid" alt="Imagem Evento" style="border-radius: 15px">
         <div class="card-body">
             <h5 class="card-title-blog"><strong>${blog.Titulo}</strong></h5>
             <div class="d-flex justify-content-between">
-                <p class="card-text mr-3">${truncatedText}</p>
+                <p class="card-text mr-3">${blog.Texto}</p>
                 <div class="text-right">
                     <button type="button" class="btn btn-dark ver-mais" data-toggle="modal" data-target="#exampleModal" data-index="${index}">
                         Ler Mais
