@@ -11536,7 +11536,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "A mostrar _START_ a _END_ de _TOTAL_ atividades",
+			"sInfo": "A mostrar _START_ a _END_ de _TOTAL_ resultados",
 	
 	
 			/**
@@ -11697,7 +11697,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Mostrar _MENU_",
+			"sLengthMenu": "Mostrar _MENU_ resultados",
 	
 	
 			/**
