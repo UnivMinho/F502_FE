@@ -111,6 +111,7 @@ $(document).ready(function () {
     $('#exampleInputTitulo').val('');
     $('#exampleInputAutor').val('');
     $('#exampleInputData').val('');
+    $('#exampleInputTextarea').val('');
   });
 
   // Submissão do formulário de criação
@@ -120,7 +121,7 @@ $(document).ready(function () {
     var titulo = $('#exampleInputTitulo').val();
     var autor = $('#exampleInputAutor').val();
     var data = $('#exampleInputData').val();
-    var texto = $('#editarInputTextarea').val();
+    var texto = $('#exampleInputTextarea').val();
     var estado = "Programada";
 
 
