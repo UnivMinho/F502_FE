@@ -39,4 +39,40 @@ googleLogin.addEventListener("click", function() {
     const errorCode = error.code;
     const errorMessage = error.message;
   });
+
 });
+
+function sendGoogleUserDataToBackend(googleUserId) {
+  // Construa o objeto com os dados a serem enviados para o backend
+  const userData = {
+    googleUserId: googleUserId
+  };
+
+  // Opções para a requisição POST
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userData) // Converta o objeto em JSON
+  };
+
+  // Faça a requisição para o backend
+  fetch('/verify-google-login', requestOptions)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Aqui você pode processar a resposta do backend, como armazenar um token de autenticação
+      const authToken = data.token;
+      console.log('Token de autenticação:', authToken);
+    })
+    .catch(error => {
+      console.error('Houve um problema com a sua requisição:', error);
+    });
+}
+
+
