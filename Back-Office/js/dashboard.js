@@ -1,182 +1,228 @@
 (function ($) {
   'use strict';
   $(function () {
-   
-    if ($("#entity-details-chart").length) {
-      var SalesChartCanvas = $("#entity-details-chart").get(0).getContext("2d");
-      var SalesChart = new Chart(SalesChartCanvas, {
-        type: 'bar',
-        data: {
-          labels: ["Rafael Alves", "Mariana Neiva", "Bruno Alves", "Miguel Miranda", "José Barreirinho","André Esteves"],
-          datasets: [
-          {
-            label: 'Corrida',
-            data: [480, 230, 470, 210, 330,500],
-            backgroundColor: '#70DE70'
-          },
-          {
-            label: 'Natação',
-            data: [400, 340, 550, 480, 170,500],
-            backgroundColor: '#FFC100'
-          },
-          {
-            label: 'Ciclismo',
-            data: [480, 230, 470, 210, 330,500],
-            backgroundColor: '#FF4747'
-          },
-          {
-            label: 'Futebol',
-            data: [400, 340, 550, 480, 170,500],
-            backgroundColor: '#248AFD'
-          },
-          {
-            label: 'Jiu-Jitsu',
-            data: [480, 230, 470, 210, 330,500],
-            backgroundColor: '#151285'
-          },
-          {
-            label: 'Trail',
-            data: [400, 340, 550, 480, 170,500],
-            backgroundColor: '#FF9898'
-          },
-          {
-            label: 'Pilates',
-            data: [480, 230, 470, 210, 330,500],
-            backgroundColor: '#3A6A36'
-          }
-          ]
-        },
-        options: {
-          cornerRadius: 5,
-          responsive: true,
-          maintainAspectRatio: true,
-          layout: {
-            padding: {
-              left: 0,
-              right: 0,
-              top: 20,
-              bottom: 0
-            }
-          },
-          scales: {
-            yAxes: [{
-              display: true,
-              gridLines: {
-                display: true,
-                drawBorder: false,
-                color: "#F2F2F2"
-              },
-              ticks: {
-                display: true,
-                min: 0,
-                max: 560,
-                callback: function (value, index, values) {
-                  return value;
-                },
-                autoSkip: true,
-                maxTicksLimit: 10,
-                fontColor: "#6C7383"
-              }
-            }],
-            xAxes: [{
-              stacked: false,
-              ticks: {
-                beginAtZero: true,
-                fontColor: "#6C7383"
-              },
-              gridLines: {
-                color: "rgba(0, 0, 0, 0)",
-                display: false
-              },
-              barPercentage: 1
-            }]
-          },
-          legend: {
-            display: false
-          },
-          elements: {
-            point: {
-              radius: 0
-            }
-          }
-        },
-      });
-      document.getElementById('entity-details-legend').innerHTML = SalesChart.generateLegend();
+
+    function getLocalStorage() {
+      return JSON.parse(localStorage.getItem('atividade')) || [];
     }
     
-    if ($("#detailed-activities-chart").length) {
-      var areaData = {
-        labels: ["Corrida", "Natação", "Ciclismo","Futebol", "Jiu-Jitsu", "Trail", "Pilates"],
-        datasets: [{
-          data: [100, 50, 50,200,400,30,150],
-          backgroundColor: [
-            "#70DE70","#FFC100","#FF4747","#248AFD","#151285","#FF9898","#3A6A36"
-          ],
-          borderColor: "rgba(0,0,0,0)"
-        }
-        ]
-      };
-      var areaOptions = {
-        responsive: true,
-        maintainAspectRatio: true,
-        segmentShowStroke: false,
-        cutoutPercentage: 78,
-        elements: {
-          arc: {
-            borderWidth: 4
-          }
-        },
-        legend: {
-          display: false
-        },
-        tooltips: {
-          enabled: true
-        },
-        legendCallback: function (chart) {
-          var text = [];
-          text.push('<div class="report-chart">');
-          text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[0] + '"></div><p class="mb-0">Offline sales</p></div>');
-          text.push('<p class="mb-0">88333</p>');
-          text.push('</div>');
-          text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[1] + '"></div><p class="mb-0">Online sales</p></div>');
-          text.push('<p class="mb-0">66093</p>');
-          text.push('</div>');
-          text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[2] + '"></div><p class="mb-0">Returns</p></div>');
-          text.push('<p class="mb-0">39836</p>');
-          text.push('</div>');
-          text.push('</div>');
-          return text.join("");
-        },
-      }
-      var detailedActivitiesChartPlugins = {
-        beforeDraw: function (chart) {
-          var width = chart.chart.width,
-            height = chart.chart.height,
-            ctx = chart.chart.ctx;
+   
+    if ($("#entity-details-chart").length) {
+  var SalesChartCanvas = $("#entity-details-chart").get(0).getContext("2d");
+  
+  // Recuperar os dados do LocalStorage
+  var activitiesData = JSON.parse(localStorage.getItem('atividade')) || [];
 
-          ctx.restore();
-          var fontSize = 3.125;
-          ctx.font = "500 " + fontSize + "em sans-serif";
-          ctx.textBaseline = "middle";
-          ctx.fillStyle = "#13381B";
-
-          var text = "5440",
-            textX = Math.round((width - ctx.measureText(text).width) / 2),
-            textY = height / 2;
-
-          ctx.fillText(text, textX, textY);
-          ctx.save();
-        }
-      }
-      var detailedActivitiesChartCanvas = $("#detailed-activities-chart").get(0).getContext("2d");
-      var detailedActivitiesChart = new Chart(detailedActivitiesChartCanvas, {
-        type: 'doughnut',
-        data: areaData,
-        options: areaOptions,
-        plugins: detailedActivitiesChartPlugins
-      });
-    // document.getElementById('detailed-activities-legend').innerHTML = detailedActivitiesChart.generateLegend();     Se quiser adicionar legenda 
+  // Organizar os dados por organizador e tipo de atividade
+  var aggregatedData = {};
+  activitiesData.forEach(function(activity) {
+    var organizer = activity.Organizador;
+    var type = activity.Atividade;
+    
+    if (!aggregatedData[organizer]) {
+      aggregatedData[organizer] = {};
     }
+
+    if (!aggregatedData[organizer][type]) {
+      aggregatedData[organizer][type] = 0;
+    }
+
+    aggregatedData[organizer][type]++;
+  });
+
+  // Extrair os organizadores como labels
+  var labels = Object.keys(aggregatedData);
+
+  // Extrair os tipos de atividade
+  var activityTypes = [];
+  activitiesData.forEach(function(activity) {
+    if (!activityTypes.includes(activity.Atividade)) {
+      activityTypes.push(activity.Atividade);
+    }
+  });
+
+  // Montar os datasets para o gráfico
+  var datasets = [];
+  activityTypes.forEach(function(type) {
+    var data = labels.map(function(organizer) {
+      return aggregatedData[organizer][type] || 0;
+    });
+
+    datasets.push({
+      label: type,
+      data: data,
+      backgroundColor: getRandomColor(), // Função para obter cores aleatórias
+    });
+  });
+
+  var SalesChart = new Chart(SalesChartCanvas, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: datasets
+    },
+    options: {
+      cornerRadius: 5,
+      responsive: true,
+      maintainAspectRatio: true,
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+          top: 20,
+          bottom: 0
+        }
+      },
+      scales: {
+        yAxes: [{
+          display: true,
+          gridLines: {
+            display: true,
+            drawBorder: false,
+            color: "#F2F2F2"
+          },
+          ticks: {
+            display: true,
+            min: 0,
+            callback: function (value, index, values) {
+              return value;
+            },
+            autoSkip: true,
+            maxTicksLimit: 10,
+            fontColor: "#6C7383"
+          }
+        }],
+        xAxes: [{
+          stacked: false,
+          ticks: {
+            beginAtZero: true,
+            fontColor: "#6C7383"
+          },
+          gridLines: {
+            color: "rgba(0, 0, 0, 0)",
+            display: false
+          },
+          barPercentage: 0.8
+        }]
+      },
+      legend: {
+        display: true,
+        position: 'top'
+      },
+      elements: {
+        point: {
+          radius: 0
+        }
+      }
+    },
+  });
+}
+
+// Função para gerar cores aleatórias
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+if ($("#detailed-activities-chart").length) {
+  // Recuperar os dados do LocalStorage
+  var activitiesData = JSON.parse(localStorage.getItem('atividade')) || [];
+
+  // Contar o número total de atividades por tipo
+  var activityCounts = {};
+  var totalActivities = 0;
+  activitiesData.forEach(function(activity) {
+    var type = activity.Atividade;
+    if (!activityCounts[type]) {
+      activityCounts[type] = 0;
+    }
+    activityCounts[type]++;
+    totalActivities++;
+  });
+
+  // Extrair os tipos de atividade e seus contadores
+  var activityTypes = Object.keys(activityCounts);
+  var activityTotals = Object.values(activityCounts);
+
+  var areaData = {
+    labels: activityTypes,
+    datasets: [{
+      data: activityTotals,
+      backgroundColor: getRandomColors(activityTypes.length), // Função para obter cores aleatórias
+      borderColor: "rgba(0,0,0,0)"
+    }]
+  };
+
+  var areaOptions = {
+    responsive: true,
+    maintainAspectRatio: true,
+    segmentShowStroke: false,
+    cutoutPercentage: 78,
+    elements: {
+      arc: {
+        borderWidth: 4
+      }
+    },
+    legend: {
+      display: false
+    },
+    tooltips: {
+      enabled: true
+    },
+    legendCallback: function(chart) {
+      // Aqui você pode adicionar uma legenda personalizada, se necessário
+    },
+  };
+
+  var detailedActivitiesChartPlugins = {
+    beforeDraw: function(chart) {
+      var width = chart.chart.width,
+          height = chart.chart.height,
+          ctx = chart.chart.ctx,
+          fontSize = 3.125,
+          text = totalActivities.toString(), // Converter o total de atividades para string
+          textX = Math.round((width - ctx.measureText(text).width) / 2),
+          textY = height / 2;
+  
+      ctx.restore();
+      ctx.font = "500 " + fontSize + "em sans-serif";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = "#FFFFFF"; // Cor do texto (branco)
+      ctx.fillText(text, textX, textY);
+      ctx.save();
+    }
+  };
+  
+
+  var detailedActivitiesChartCanvas = $("#detailed-activities-chart").get(0).getContext("2d");
+  var detailedActivitiesChart = new Chart(detailedActivitiesChartCanvas, {
+    type: 'doughnut',
+    data: areaData,
+    options: areaOptions,
+    plugins: detailedActivitiesChartPlugins
+  });
+
+  // Exibir o total de atividades
+  $("#detailed-activities-chart-total").text("Total de atividades: " + totalActivities);
+
+  // document.getElementById('detailed-activities-legend').innerHTML = detailedActivitiesChart.generateLegend(); // Se quiser adicionar legenda
+}
+
+// Função para gerar cores aleatórias
+function getRandomColors(count) {
+  var colors = [];
+  for (var i = 0; i < count; i++) {
+    var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    colors.push(color);
+  }
+  return colors;
+}
+
+
 
     function format(d) {
       // `d` is the original data object for the row
@@ -186,8 +232,13 @@
       '</tr>' +
         '</table>';
     }
+
+    function getLocalStorage() {
+      return JSON.parse(localStorage.getItem('atividade')) || [];
+    }
+    
     var table = $('#example').DataTable({
-      "ajax": "js/data.txt",
+      "data": getLocalStorage(), // Utilize a função getLocalStorage() para buscar os dados
       "columns": [
         { "data": "Codigo" },
         { "data": "Nome" },
@@ -198,6 +249,16 @@
         { "data": "Data" },
       ]
     });
+    
+    // Atualizar a tabela com os dados do LocalStorage
+    function updateTable() {
+      var data = getLocalStorage();
+      table.clear().rows.add(data).draw();
+    }
+    
+    // Chame a função updateTable() para popular a tabela com os dados do LocalStorage
+    updateTable();
+
     $('#example tbody').on('click', 'td.details-control', function () {
       var tr = $(this).closest('tr');
       var row = table.row(tr);
