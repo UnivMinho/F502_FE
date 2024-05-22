@@ -134,12 +134,14 @@ if ($("#detailed-activities-chart").length) {
 
   // Contar o número total de atividades por tipo
   var activityCounts = {};
+  var totalActivities = 0;
   activitiesData.forEach(function(activity) {
     var type = activity.Atividade;
     if (!activityCounts[type]) {
       activityCounts[type] = 0;
     }
     activityCounts[type]++;
+    totalActivities++;
   });
 
   // Extrair os tipos de atividade e seus contadores
@@ -178,9 +180,23 @@ if ($("#detailed-activities-chart").length) {
 
   var detailedActivitiesChartPlugins = {
     beforeDraw: function(chart) {
-      // Aqui você pode personalizar o desenho do gráfico antes de ser renderizado
+      var width = chart.chart.width,
+          height = chart.chart.height,
+          ctx = chart.chart.ctx,
+          fontSize = 3.125,
+          text = totalActivities.toString(), // Converter o total de atividades para string
+          textX = Math.round((width - ctx.measureText(text).width) / 2),
+          textY = height / 2;
+  
+      ctx.restore();
+      ctx.font = "500 " + fontSize + "em sans-serif";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = "#FFFFFF"; // Cor do texto (branco)
+      ctx.fillText(text, textX, textY);
+      ctx.save();
     }
   };
+  
 
   var detailedActivitiesChartCanvas = $("#detailed-activities-chart").get(0).getContext("2d");
   var detailedActivitiesChart = new Chart(detailedActivitiesChartCanvas, {
@@ -189,6 +205,9 @@ if ($("#detailed-activities-chart").length) {
     options: areaOptions,
     plugins: detailedActivitiesChartPlugins
   });
+
+  // Exibir o total de atividades
+  $("#detailed-activities-chart-total").text("Total de atividades: " + totalActivities);
 
   // document.getElementById('detailed-activities-legend').innerHTML = detailedActivitiesChart.generateLegend(); // Se quiser adicionar legenda
 }
@@ -202,6 +221,7 @@ function getRandomColors(count) {
   }
   return colors;
 }
+
 
 
     function format(d) {
