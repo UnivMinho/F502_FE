@@ -1,108 +1,134 @@
 (function ($) {
   'use strict';
   $(function () {
+
+    function getLocalStorage() {
+      return JSON.parse(localStorage.getItem('atividade')) || [];
+    }
+    
    
     if ($("#entity-details-chart").length) {
-      var SalesChartCanvas = $("#entity-details-chart").get(0).getContext("2d");
-      var SalesChart = new Chart(SalesChartCanvas, {
-        type: 'bar',
-        data: {
-          labels: ["Rafael Alves", "Mariana Neiva", "Bruno Alves", "Miguel Miranda", "José Barreirinho","André Esteves"],
-          datasets: [
-          {
-            label: 'Corrida',
-            data: [480, 230, 470, 210, 330,500],
-            backgroundColor: '#70DE70'
+  var SalesChartCanvas = $("#entity-details-chart").get(0).getContext("2d");
+  
+  // Recuperar os dados do LocalStorage
+  var activitiesData = JSON.parse(localStorage.getItem('atividade')) || [];
+
+  // Organizar os dados por organizador e tipo de atividade
+  var aggregatedData = {};
+  activitiesData.forEach(function(activity) {
+    var organizer = activity.Organizador;
+    var type = activity.Atividade;
+    
+    if (!aggregatedData[organizer]) {
+      aggregatedData[organizer] = {};
+    }
+
+    if (!aggregatedData[organizer][type]) {
+      aggregatedData[organizer][type] = 0;
+    }
+
+    aggregatedData[organizer][type]++;
+  });
+
+  // Extrair os organizadores como labels
+  var labels = Object.keys(aggregatedData);
+
+  // Extrair os tipos de atividade
+  var activityTypes = [];
+  activitiesData.forEach(function(activity) {
+    if (!activityTypes.includes(activity.Atividade)) {
+      activityTypes.push(activity.Atividade);
+    }
+  });
+
+  // Montar os datasets para o gráfico
+  var datasets = [];
+  activityTypes.forEach(function(type) {
+    var data = labels.map(function(organizer) {
+      return aggregatedData[organizer][type] || 0;
+    });
+
+    datasets.push({
+      label: type,
+      data: data,
+      backgroundColor: getRandomColor(), // Função para obter cores aleatórias
+    });
+  });
+
+  var SalesChart = new Chart(SalesChartCanvas, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: datasets
+    },
+    options: {
+      cornerRadius: 5,
+      responsive: true,
+      maintainAspectRatio: true,
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+          top: 20,
+          bottom: 0
+        }
+      },
+      scales: {
+        yAxes: [{
+          display: true,
+          gridLines: {
+            display: true,
+            drawBorder: false,
+            color: "#F2F2F2"
           },
-          {
-            label: 'Natação',
-            data: [400, 340, 550, 480, 170,500],
-            backgroundColor: '#FFC100'
-          },
-          {
-            label: 'Ciclismo',
-            data: [480, 230, 470, 210, 330,500],
-            backgroundColor: '#FF4747'
-          },
-          {
-            label: 'Futebol',
-            data: [400, 340, 550, 480, 170,500],
-            backgroundColor: '#248AFD'
-          },
-          {
-            label: 'Jiu-Jitsu',
-            data: [480, 230, 470, 210, 330,500],
-            backgroundColor: '#151285'
-          },
-          {
-            label: 'Trail',
-            data: [400, 340, 550, 480, 170,500],
-            backgroundColor: '#FF9898'
-          },
-          {
-            label: 'Pilates',
-            data: [480, 230, 470, 210, 330,500],
-            backgroundColor: '#3A6A36'
+          ticks: {
+            display: true,
+            min: 0,
+            callback: function (value, index, values) {
+              return value;
+            },
+            autoSkip: true,
+            maxTicksLimit: 10,
+            fontColor: "#6C7383"
           }
-          ]
-        },
-        options: {
-          cornerRadius: 5,
-          responsive: true,
-          maintainAspectRatio: true,
-          layout: {
-            padding: {
-              left: 0,
-              right: 0,
-              top: 20,
-              bottom: 0
-            }
+        }],
+        xAxes: [{
+          stacked: false,
+          ticks: {
+            beginAtZero: true,
+            fontColor: "#6C7383"
           },
-          scales: {
-            yAxes: [{
-              display: true,
-              gridLines: {
-                display: true,
-                drawBorder: false,
-                color: "#F2F2F2"
-              },
-              ticks: {
-                display: true,
-                min: 0,
-                max: 560,
-                callback: function (value, index, values) {
-                  return value;
-                },
-                autoSkip: true,
-                maxTicksLimit: 10,
-                fontColor: "#6C7383"
-              }
-            }],
-            xAxes: [{
-              stacked: false,
-              ticks: {
-                beginAtZero: true,
-                fontColor: "#6C7383"
-              },
-              gridLines: {
-                color: "rgba(0, 0, 0, 0)",
-                display: false
-              },
-              barPercentage: 1
-            }]
-          },
-          legend: {
+          gridLines: {
+            color: "rgba(0, 0, 0, 0)",
             display: false
           },
-          elements: {
-            point: {
-              radius: 0
-            }
-          }
-        },
-      });
-      document.getElementById('entity-details-legend').innerHTML = SalesChart.generateLegend();
-    }
+          barPercentage: 0.8
+        }]
+      },
+      legend: {
+        display: true,
+        position: 'top'
+      },
+      elements: {
+        point: {
+          radius: 0
+        }
+      }
+    },
+  });
+}
+
+// Função para gerar cores aleatórias
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+    
     
     if ($("#detailed-activities-chart").length) {
       var areaData = {
