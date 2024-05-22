@@ -194,86 +194,29 @@
    </div>
 </div>
    <!-- blog section end -->
-   <!-- client section start -->
-   <div class="client_section layout_padding">
-      <div class="container">
-         <h1 class="client_taital">Testemunhos</h1>
-         <div class="client_section_2">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-               <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+<!-- client section start -->
+<div class="client_section layout_padding">
+   <div class="container">
+       <h1 class="client_taital">Testemunhos</h1>
+       <div class="client_section_2">
+           <div id="testemunhos-carousel" class="carousel slide" data-ride="carousel">
+               <!-- Indicadores dinâmicos serão adicionados aqui -->
+               <ol class="carousel-indicators" id="testemunhos-carousel-indicators">
+                   <!-- Indicadores dinâmicos serão adicionados aqui -->
                </ol>
-               <div class="carousel-inner">
-                  <div class="carousel-item active">
-                     <div class="client_main">
-                        <div class="box_left">
-                           <p class="lorem_text">Foi uma experiência fantástica, adorei a aula de
-                              zumba que fiz, as colegas foram 5 estrelas,
-                              muito simpáticas e boas dançarinas, adorei!
-                              Vou, certamente, voltar a repetir.</p>
-                        </div>
-                        <div class="box_right">
-                           <div class="client_taital_left">
-                              <div class="client_img"><img src="images/client-img.png"></div>
-                              <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                           </div>
-                           <div class="client_taital_right">
-                              <h4 class="client_name">Rafael Alves</h4>
-                              <p class="customer_text">Estudante</p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="client_main">
-                        <div class="box_left">
-                           <p class="lorem_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugia</p>
-                        </div>
-                        <div class="box_right">
-                           <div class="client_taital_left">
-                              <div class="client_img"><img src="images/client-img.png"></div>
-                              <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                           </div>
-                           <div class="client_taital_right">
-                              <h4 class="client_name">Dame</h4>
-                              <p class="customer_text">Customer</p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                     <div class="client_main">
-                        <div class="box_left">
-                           <p class="lorem_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugia</p>
-                        </div>
-                        <div class="box_right">
-                           <div class="client_taital_left">
-                              <div class="client_img"><img src="images/client-img.png"></div>
-                              <div class="quick_icon"><img src="images/quick-icon.png"></div>
-                           </div>
-                           <div class="client_taital_right">
-                              <h4 class="client_name">Dame</h4>
-                              <p class="customer_text">Customer</p>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
+               <!-- Conteúdo do carrossel será adicionado dinamicamente aqui -->
+               <div class="carousel-inner" id="testemunhos-carousel-inner">
+                   <!-- Conteúdo do carrossel será adicionado dinamicamente aqui -->
                </div>
-            </div>
-         </div>
-      </div>
+           </div>
+       </div>
    </div>
-   <!-- client section start -->
-   <!-- choose section start -->
-   <div class="choose_section layout_padding">
+</div>
+
+
+<!-- client section start -->
+<!-- choose section start -->
+<div class="choose_section layout_padding">
       <div class="container">
          <h1 class="choose_taital">Porquê participar numa
             atividade?</h1>
@@ -333,17 +276,9 @@
    <!-- javascript -->
    <script src="js/owl.carousel.js"></script>
    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+   
 </body>
 
-<!-- Adicionar uma seção onde os testemunhos serão exibidos -->
-<section id="testemunhos-section">
-   <div class="container">
-     <h2>Testemunhos</h2>
-     <div id="testemunhos-container" class="row">
-       <!-- Os testemunhos serão inseridos dinamicamente aqui -->
-     </div>
-   </div>
- </section>
 
  <!-- plugins:js -->
  <script src="vendors/js/vendor.bundle.base.js"></script>
@@ -351,29 +286,7 @@
  <!-- Custom js para esta página-->
  <script src="js/testemunhos.js"></script>
  <!-- Fim do custom js para esta página-->
+ <script src="js/indexTestemunhos.js"></script>
 
- <script>
-   document.addEventListener('DOMContentLoaded', function () {
-     // Buscar testemunhos do localStorage
-     var testemunhosData = JSON.parse(localStorage.getItem('testemunhosData')) || [];
-     var testemunhosContainer = document.getElementById('testemunhos-container');
 
-     // Renderizar testemunhos
-     testemunhosData.forEach(function(testemunho) {
-       var testemunhoHTML = `
-         <div class="col-md-4">
-           <div class="testemunho">
-             <img src="${testemunho.Imagem}" alt="${testemunho.Nome}" class="testemunho-imagem">
-             <h3>${testemunho.Nome}</h3>
-             <h4>${testemunho.Profissao}</h4>
-             <p>${testemunho.Texto}</p>
-             <p><small>${testemunho.DataPublicacao}</small></p>
-           </div>
-         </div>
-       `;
-       testemunhosContainer.insertAdjacentHTML('beforeend', testemunhoHTML);
-     });
-   });
- </script>
-
-</html>
+</html
