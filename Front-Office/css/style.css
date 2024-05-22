@@ -317,6 +317,8 @@ button {
     border-radius: 40px;
 }
 
+
+
 .menu_main li a {
     color: #ffffff;
     padding: 10px 20px;
@@ -1065,6 +1067,7 @@ button {
     background-color: #27A62C;
 }
 
+
 /* Adicione qualquer estilo personalizado necessário aqui */
 
 /* Estilos específicos para o banner */
@@ -1291,6 +1294,14 @@ button {
 }
  
  
+.client_img img {
+    width: 150px; /* Defina a largura da imagem */
+    height: 150px; /* Defina a altura da imagem */
+    object-fit: cover; /* Garante que a imagem cubra completamente o contêiner */
+    border-radius: 50%; /* Cria um círculo */
+}
+
+
  
  
 
