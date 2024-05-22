@@ -11697,7 +11697,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Mostrar _MENU_ atividades",
+			"sLengthMenu": "Mostrar _MENU_",
 	
 	
 			/**
@@ -11788,7 +11788,7 @@
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.searchPlaceholder
 			 */
-			"sSearchPlaceholder": "Atividade",
+			"sSearchPlaceholder": "",
 	
 	
 			/**
