@@ -30,8 +30,18 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         `;
         carouselInner.insertAdjacentHTML('beforeend', testemunhoHTML);
+
+            // Adicionar indicador para cada item
+            var indicatorHTML = `
+            <li data-target="#testemunhos-carousel" data-slide-to="${index}" class="${index === 0 ? 'active' : ''}"></li>
+        `;
+        carouselIndicators.insertAdjacentHTML('beforeend', indicatorHTML);
     });
+
+    // Ativar o carrossel
+    $('#testemunhos-carousel').carousel();
 });
+
 
 
 
