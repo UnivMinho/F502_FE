@@ -186,8 +186,13 @@
       '</tr>' +
         '</table>';
     }
+
+    function getLocalStorage() {
+      return JSON.parse(localStorage.getItem('atividade')) || [];
+    }
+    
     var table = $('#example').DataTable({
-      "ajax": "js/data.txt",
+      "data": getLocalStorage(), // Utilize a função getLocalStorage() para buscar os dados
       "columns": [
         { "data": "Codigo" },
         { "data": "Nome" },
@@ -198,6 +203,16 @@
         { "data": "Data" },
       ]
     });
+    
+    // Atualizar a tabela com os dados do LocalStorage
+    function updateTable() {
+      var data = getLocalStorage();
+      table.clear().rows.add(data).draw();
+    }
+    
+    // Chame a função updateTable() para popular a tabela com os dados do LocalStorage
+    updateTable();
+
     $('#example tbody').on('click', 'td.details-control', function () {
       var tr = $(this).closest('tr');
       var row = table.row(tr);
