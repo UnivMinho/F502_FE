@@ -37,35 +37,27 @@ $(document).ready(function () {
     $('#editarInputAutor').val(rowData.Autor);
     $('#editarInputTextarea').val(rowData.Texto);
   
+    if (rowData.Imagem) {
+      uploadedImageBase64 = rowData.Imagem;
+      $('#editPreviewImage').attr('src', uploadedImageBase64).show();
+    } else {
+      uploadedImageBase64 = "";
+      $('#editPreviewImage').hide();
+    }
+  
     // Formatar a data no formato esperado pelo input type="date"
     var dataFormatada = rowData.Data.split("/").reverse().join("-");
     $('#editarInputData').val(dataFormatada);
   
-    // Abrir o modal de edição
     $('#editarblogsModal').modal('show');
   }
 
   // Capturar o clique no ícone de edição
   $('#dataBlog').on('click', '.editar-icon', function () {
-    // Obter os dados da linha da tabela clicada
     var rowData = table.row($(this).parents('tr')).data();
-
     openEditModal(rowData);
-
     $('#editarblogsModal').data('rowIndex', table.row($(this).parents('tr')).index());
   });
-
-  // Função para editar um blog
-  function editarBlog(rowIndex, newData) {
-    var data = getLocalStorage();
-
-    data[rowIndex] = newData;
-
-    saveToLocalStorage(data);
-
-    // Atualizar a tabela
-    table.clear().rows.add(data).draw();
-  }
 
   // Submissão do formulário de edição
   $('#editarblogsModal form').on('submit', function (e) {
@@ -86,6 +78,7 @@ $(document).ready(function () {
       "Data": data,
       "Texto": texto,
       "Estado": estado,
+      "Imagem": uploadedImageBase64
     };
 
     console.log(newData);
@@ -94,17 +87,11 @@ $(document).ready(function () {
     var data = getLocalStorage();
 
     data[rowIndex] = newData;
-
     saveToLocalStorage(data);
-
-    // Atualizar a tabela
     table.clear().rows.add(data).draw();
 
-    // Fechar o modal de edição
     $('#editarblogsModal').modal('hide');
   });
-
-
 
   $('blogsModal').on('show.bs.modal', function () {
     $('#exampleInputCodigo').val('');
@@ -112,6 +99,9 @@ $(document).ready(function () {
     $('#exampleInputAutor').val('');
     $('#exampleInputData').val('');
     $('#exampleInputTextarea').val('');
+    uploadedImageBase64 = "";
+    $('#previewImage').hide();
+    $('#imageUpload').siblings('.file-upload-info').val('');
   });
 
   // Submissão do formulário de criação
@@ -124,7 +114,6 @@ $(document).ready(function () {
     var texto = $('#exampleInputTextarea').val();
     var estado = "Programada";
 
-
     var blog = {
       "Codigo": codigo,
       "Titulo": titulo,
@@ -132,41 +121,60 @@ $(document).ready(function () {
       "Data": data,
       "Texto": texto,
       "Estado": estado,
+      "Imagem": uploadedImageBase64
     };
 
     var data = getLocalStorage();
     data.push(blog);
     saveToLocalStorage(data);
 
-
-    // Atualizar a tabela
     table.clear().rows.add(data).draw();
 
     $('#blogsModal').modal('hide');
   });
 
   function apagarBlog(index) {
-    // Obter os dados do localStorage
     var data = getLocalStorage();
-
-    // Remover o blog com o índice fornecido
     data.splice(index, 1);
-
-    // Salvar os dados atualizados no localStorage
     saveToLocalStorage(data);
-
-    // Atualizar a tabela
     table.clear().rows.add(data).draw();
   }
 
   // Capturar o clique no ícone de exclusão
   $('#dataBlog').on('click', '.apagar-icon', function () {
-    // Obter o índice da linha que está sendo apagada
     var rowIndex = table.row($(this).parents('tr')).index();
-
-    // Chamar a função para apagar o blog
     apagarBlog(rowIndex);
   });
 
+
+  function readURL(input, previewElement) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        uploadedImageBase64 = e.target.result;
+        $(previewElement).attr('src', e.target.result).show(); // Exibir a imagem
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  
+  $("#imageUpload").change(function () {
+    readURL(this, '#previewImage');
+    var fileName = $(this).val().split('\\').pop();
+    $(this).siblings('.file-upload-info').val(fileName); // Define o nome do arquivo carregado
+  });
+
+  $("#editImageUpload").change(function () {
+    readURL(this, '#editPreviewImage');
+    var fileName = $(this).val().split('\\').pop();
+    $(this).siblings('.file-upload-info').val(fileName); // Define o nome do arquivo carregado
+  });
+
+  $(".file-upload-browse").on('click', function () {
+    var file = $(this).parents().find('.file-upload-default');
+    file.trigger('click');
+  });
 
 });
