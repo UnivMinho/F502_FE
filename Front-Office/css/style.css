@@ -1228,15 +1228,19 @@ button {
     color: #ffffff;
  }
 
+ .logo{
+    margin-left: 70px;
+ }
  #header-logo-login{
     display: flex;
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
  }
 
  .btn-entrar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     color: #ffffff;
     text-decoration: none !important;
 }
@@ -1337,10 +1341,6 @@ button {
     max-height: 100%; /* Defina a altura máxima que você deseja para o vídeo */
     margin: 0 auto; /* Centraliza o vídeo horizontalmente */
 }
-
- 
- 
-
 
 
 
