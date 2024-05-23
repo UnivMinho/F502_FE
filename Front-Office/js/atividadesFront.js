@@ -117,7 +117,9 @@ $('#toggleButton').click(function () {
     $('#toggleIcon').toggleClass('rotated');
 });
 
+
 function criarCard(atividade, index) {
+
     const card = document.createElement('div');
     card.className = 'card'; // Classe do card Bootstrap
     card.style.width = '18rem';
@@ -125,7 +127,7 @@ function criarCard(atividade, index) {
     const imagem = atividade.Imagem ? atividade.Imagem : 'images/img-walking.jpg'; // Utiliza a imagem do localStorage ou uma imagem padrão
   
     card.innerHTML = `
-        <img src="${imagem}" class="card-img-top" alt="Imagem da Atividade">
+        <img src="${imagem}" class="card-img-top" id="card-img-top" alt="Imagem da Atividade">
         <div class="card-body">
             <div class="card-title-price">
                 <h5 class="card-title"><strong>${atividade.Nome}</strong></h5>
