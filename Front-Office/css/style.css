@@ -1121,7 +1121,15 @@ button {
         display: none;
     }
 }
-
+@media only screen and (max-width: 600px) {
+    /* Esconda o vídeo quando a largura da tela for menor que 600px */
+    #container-video {
+      display: none;
+    }
+    #texto-video-blog{
+        display: none;
+    }
+  }
 
 .card-title{
     text-align: left;
@@ -1154,7 +1162,6 @@ button {
 }
 
 .card{
-    margin-top:10px;
     max-width: 100%; /* ou alguma largura máxima desejada */
     height: 100%;
 }
@@ -1168,10 +1175,6 @@ button {
     border-radius: 10px;
 }
 
-.card-img-top{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
 
 .title-button {
     display: flex;
@@ -1180,7 +1183,7 @@ button {
 }
 
 .services_taital {
-    margin: 0;
+    margin: 0px;
 }
 
 .btn.btn-secondary.dropdown-toggle{
@@ -1315,16 +1318,25 @@ button {
     transition: transform 0.3s;
 }
 
-.card-img-top {
+#card-img-top {
     width: 100%;
     height: 200px; /* Ajuste a altura conforme necessário */
     object-fit: cover; /* Isto garante que a imagem preencha o container sem distorção */
  }
-  
-.card {
-    width: 18rem;
+
+ #videoPagIn{
+    border-radius: 20px;
+ }
+
+ #atividades-container .col-md-4 {
+    margin-bottom: 20px; /* Espaço inferior entre os cartões */
 }
 
+#video-blog {
+    max-width: 50%; /* Defina a largura máxima que você deseja para o vídeo */
+    max-height: 100%; /* Defina a altura máxima que você deseja para o vídeo */
+    margin: 0 auto; /* Centraliza o vídeo horizontalmente */
+}
 
  
  
