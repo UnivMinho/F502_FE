@@ -1132,16 +1132,26 @@ button {
     text-align: left;
     font-size: 18px;
 }
-.card-title-price p, h5{
-    display: inline-block;
+.card-ver-mais-price {
+    display: flex;
+    justify-content: space-between;
 }
-.price{
-    font-size:18px;
-  text-align: right;
-  width: 25%;
-  font-weight: bold;
-  color: #000;
-  margin:0;
+
+.ver-mais-btn {
+    order: 1; /* Garante que o botão "Ver Mais" esteja à esquerda */
+}
+
+.price {
+    order: 2; /* Garante que o preço esteja à direita */
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+}
+.text-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Isso alinha verticalmente os elementos */
 }
 
 #location{

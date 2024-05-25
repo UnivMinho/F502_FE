@@ -57,20 +57,20 @@ function criarCardPrincipal(atividade, index) {
   const imagem = atividade.Imagem ? atividade.Imagem : 'images/img-walking.jpg'; // Utiliza a imagem do localStorage ou uma imagem padrão
 
   card.innerHTML = `
-      <img src="${imagem}" class="card-img-top" id="card-img-top" alt="Imagem da Atividade">
-      <div class="card-body">
-          <div class="card-title-price">
-              <h5 class="card-title"><strong>${atividade.Nome}</strong></h5>
-              <p class="price">${atividade.Preco}</p>
-          </div>
-          <p class="card-text"><strong>Localização:</strong> ${atividade.Local}</p>
-          <p class="card-text"><strong>Data:</strong> ${atividade.Data}</p>
-          <div class="text-center">
-              <button type="button" class="btn btn-success ver-mais-btn" data-toggle="modal" data-target="#atividadeModal" data-index="${index}">
-                  VER MAIS
-              </button>
-          </div>
+  <img src="${imagem}" class="card-img-top" id="card-img-top" alt="Imagem da Atividade">
+  <div class="card-body">
+      <div class="card-title-price">
+          <h5 class="card-title"><strong>${atividade.Nome}</strong></h5>
       </div>
-  `;
-  return card;
+      <p class="card-text"><strong>Localização:</strong> ${atividade.Local}</p>
+      <p class="card-text"><strong>Data:</strong> ${atividade.Data}</p>
+      <div class="text-center" class="ver-mais-price">
+          <button type="button" class="btn btn-success ver-mais-btn" data-toggle="modal" data-target="#exampleModal" data-index="${index}">
+              VER MAIS
+          </button>
+          <p class="price">${atividade.Preco}</p>
+      </div>
+  </div>
+`;
+return card;
 }
