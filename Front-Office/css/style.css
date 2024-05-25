@@ -580,6 +580,12 @@ button {
     margin: auto;
     margin-bottom: 5%;
 }
+.card-img-top-blog {
+    height: 200px;
+    width: 500px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
 
 .card-text {
     display: -webkit-box;

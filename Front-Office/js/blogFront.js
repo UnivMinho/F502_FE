@@ -49,7 +49,7 @@ function criarCardBlog(blog, index) {
     card.className = 'card-blog';
     card.style.width = '35rem';
     card.innerHTML = `
-        <img src="${blog.Imagem}" class="card-img-top img-fluid" alt="Imagem Evento" style="border-radius: 15px">
+        <img src="${blog.Imagem}" class="card-img-top-blog img-fluid" alt="Imagem Evento" style="border-radius: 15px">
         <div class="card-body">
             <h5 class="card-title-blog"><strong>${blog.Titulo}</strong></h5>
             <div class="d-flex justify-content-between">
