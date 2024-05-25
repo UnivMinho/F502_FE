@@ -32,15 +32,26 @@ googleLogin.addEventListener("click", function() {
     // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const user = result.user;
-    console.log(user);
+
+    // Armazenar informações do usuário no local storage
+    const userObject = {
+      displayName: user.displayName,
+      email: user.email,
+      photoURL: user.photoURL,
+      uid: user.uid,
+      accessToken: credential.accessToken // Pode ser opcional, dependendo do seu uso
+    };
+
+    localStorage.setItem('utilizadores', JSON.stringify(userObject));
+    
     window.location.href = "../Back-Office/index.html";
   }).catch((error) => {
-    // Handle Errors here.
     const errorCode = error.code;
     const errorMessage = error.message;
   });
-
 });
+
+
 
 function sendGoogleUserDataToBackend(googleUserId) {
   // Construa o objeto com os dados a serem enviados para o backend
