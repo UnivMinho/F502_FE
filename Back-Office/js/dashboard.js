@@ -382,7 +382,7 @@ if ($("#detailed-activities-chart").length) {
     return (atividadesUltimos30Dias / atividades.length) * 100;
   }
     // Get user details from localStorage
-var user = JSON.parse(localStorage.getItem('utilizadores'));
+var user = JSON.parse(localStorage.getItem('userSignIn'));
 
 // Update profile image
 $('.nav-link.dropdown-toggle img').attr('src', user.photoURL);

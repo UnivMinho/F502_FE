@@ -200,3 +200,11 @@ $(document).ready(function () {
     file.trigger('click');
   });
 });
+    // Get user details from localStorage
+    var user = JSON.parse(localStorage.getItem('userSignIn'));
+
+    // Update profile image
+    $('.nav-link.dropdown-toggle img').attr('src', user.photoURL);
+    
+    // Update welcome message
+    $('#nomeUtilizador').text(user.displayName);

@@ -32,58 +32,40 @@ googleLogin.addEventListener("click", function() {
     // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const user = result.user;
+ // Verificar se já existem usuários armazenados no localStorage
+ let users = localStorage.getItem('utilizadores');
+ users = users ? JSON.parse(users) : {}; // Se não houver nenhum usuário, inicializa como um objeto vazio
+ 
+  const userObject = {
+    displayName: user.displayName,
+    email: user.email,
+    photoURL: user.photoURL,
+    uid: user.uid,
+    accessToken: credential.accessToken // Pode ser opcional, dependendo do seu uso
+  };
 
-    // Armazenar informações do usuário no local storage
-    const userObject = {
-      displayName: user.displayName,
-      email: user.email,
-      photoURL: user.photoURL,
-      uid: user.uid,
-      accessToken: credential.accessToken // Pode ser opcional, dependendo do seu uso
-    };
+  localStorage.setItem('userSignIn', JSON.stringify(userObject));
+ 
+ 
+  // Verificar se o usuário atual já está armazenado
+ if (!users[user.uid]) {
+   // Se o usuário não existe, adicione-o ao objeto de usuários
+   users[user.uid] = {
+     displayName: user.displayName,
+     email: user.email,
+     photoURL: user.photoURL,
+     accessToken: credential.accessToken
+   };
+ }
 
-    localStorage.setItem('utilizadores', JSON.stringify(userObject));
-    
-    window.location.href = "../Back-Office/index.html";
-  }).catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
+ // Armazenar o objeto de usuários atualizado no localStorage
+ localStorage.setItem('utilizadores', JSON.stringify(users));
+ 
+ window.location.href = "../Back-Office/index.html";
+}).catch((error) => {
+ const errorCode = error.code;
+ const errorMessage = error.message;
 });
-
-
-
-function sendGoogleUserDataToBackend(googleUserId) {
-  // Construa o objeto com os dados a serem enviados para o backend
-  const userData = {
-    googleUserId: googleUserId
-  };
-
-  // Opções para a requisição POST
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(userData) // Converta o objeto em JSON
-  };
-
-  // Faça a requisição para o backend
-  fetch('/verify-google-login', requestOptions)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Aqui você pode processar a resposta do backend, como armazenar um token de autenticação
-      const authToken = data.token;
-      console.log('Token de autenticação:', authToken);
-    })
-    .catch(error => {
-      console.error('Houve um problema com a sua requisição:', error);
-    });
-}
+});
 
 
