@@ -118,14 +118,36 @@
   });
 }
 
-// Função para gerar cores aleatórias
 function getRandomColor() {
   var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
+  var color;
+  
+  do {
+    color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+  } while (color === '#FFFFFF');
+  
   return color;
+}
+
+// Função para gerar cores aleatórias distintas
+function getRandomColors(count) {
+  var colors = [];
+  var usedColors = new Set();
+  
+  while (colors.length < count) {
+    var color;
+    do {
+      color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    } while (color.length !== 7 || usedColors.has(color.toUpperCase()) || color.toUpperCase() === "#FFFFFF");
+    
+    colors.push(color);
+    usedColors.add(color.toUpperCase());
+  }
+  
+  return colors;
 }
 
 if ($("#detailed-activities-chart").length) {
@@ -147,12 +169,13 @@ if ($("#detailed-activities-chart").length) {
   // Extrair os tipos de atividade e seus contadores
   var activityTypes = Object.keys(activityCounts);
   var activityTotals = Object.values(activityCounts);
+  var backgroundColors = getRandomColors(activityTypes.length);
 
   var areaData = {
     labels: activityTypes,
     datasets: [{
       data: activityTotals,
-      backgroundColor: getRandomColors(activityTypes.length), // Função para obter cores aleatórias
+      backgroundColor: backgroundColors, // Função para obter cores aleatórias distintas
       borderColor: "rgba(0,0,0,0)"
     }]
   };
@@ -160,8 +183,7 @@ if ($("#detailed-activities-chart").length) {
   var areaOptions = {
     responsive: true,
     maintainAspectRatio: true,
-    segmentShowStroke: false,
-    cutoutPercentage: 78,
+    cutoutPercentage: 78, // Reduz o tamanho do recorte central
     elements: {
       arc: {
         borderWidth: 4
@@ -172,56 +194,64 @@ if ($("#detailed-activities-chart").length) {
     },
     tooltips: {
       enabled: true
-    },
-    legendCallback: function(chart) {
-      // Aqui você pode adicionar uma legenda personalizada, se necessário
-    },
+    }
   };
 
   var detailedActivitiesChartPlugins = {
     beforeDraw: function(chart) {
       var width = chart.chart.width,
           height = chart.chart.height,
-          ctx = chart.chart.ctx,
-          fontSize = 3.125,
-          text = totalActivities.toString(), // Converter o total de atividades para string
-          textX = Math.round((width - ctx.measureText(text).width) / 2),
-          textY = height / 2;
-  
+          ctx = chart.chart.ctx;
+
       ctx.restore();
-      ctx.font = "500 " + fontSize + "em sans-serif";
+      var fontSize = (height / 114).toFixed(2);
+      ctx.font = fontSize + "em sans-serif";
       ctx.textBaseline = "middle";
-      ctx.fillStyle = "#FFFFFF"; // Cor do texto (branco)
+      ctx.fillStyle = "#000000"; // Cor do texto
+
+      var text = totalActivities.toString(),
+          textX = Math.round((width - ctx.measureText(text).width) / 2),
+          textY = (chart.chartArea.top + chart.chartArea.bottom) / 2;
+
       ctx.fillText(text, textX, textY);
       ctx.save();
     }
   };
-  
 
   var detailedActivitiesChartCanvas = $("#detailed-activities-chart").get(0).getContext("2d");
   var detailedActivitiesChart = new Chart(detailedActivitiesChartCanvas, {
     type: 'doughnut',
     data: areaData,
     options: areaOptions,
-    plugins: detailedActivitiesChartPlugins
+    plugins: [detailedActivitiesChartPlugins]
   });
 
-  // Exibir o total de atividades
-  $("#detailed-activities-chart-total").text("Total de atividades: " + totalActivities);
+  // Preencher a tabela de progresso
+  var progressTable = $(".report-table");
+  progressTable.empty();
 
-  // document.getElementById('detailed-activities-legend').innerHTML = detailedActivitiesChart.generateLegend(); // Se quiser adicionar legenda
+  activityTypes.forEach(function(type, index) {
+    var count = activityCounts[type];
+    var percentage = (count / totalActivities) * 100;
+
+    var tableRow = `
+      <tr>
+        <td class="text-muted">${type}</td>
+        <td class="w-100 px-0">
+          <div class="progress progress-md mx-4">
+            <div class="progress-bar" role="progressbar" style="width: ${percentage}%; background-color: ${backgroundColors[index]};"
+              aria-valuenow="${percentage}" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </td>
+        <td>
+          <h5 class="font-weight-bold mb-0">${count}</h5>
+        </td>
+      </tr>
+    `;
+
+    progressTable.append(tableRow);
+  });
 }
-
-// Função para gerar cores aleatórias
-function getRandomColors(count) {
-  var colors = [];
-  for (var i = 0; i < count; i++) {
-    var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-    colors.push(color);
-  }
-  return colors;
-}
-
 
 
     function format(d) {
