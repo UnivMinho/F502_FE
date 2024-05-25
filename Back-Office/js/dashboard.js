@@ -334,7 +334,7 @@ if ($("#detailed-activities-chart").length) {
           atividadesHoje++;
         }
         capacidadeTotalAtividades += parseInt(atividade.maxParticipantes, 10);
-        precoTotalAtividades += atividade.Preco ? parseFloat(atividade.Preco) : 0;
+        precoTotalAtividades += atividade.Preco ? parseFloat(atividade.Preco) : 0; 
 
       });
     } else {
