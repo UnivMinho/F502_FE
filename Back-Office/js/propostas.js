@@ -45,7 +45,6 @@ $(document).ready(function () {
         var rowData = table.row($(this).parents('tr')).data(); // Obter os dados da linha da tabela clicada
         console.log("Dados da linha:", rowData); // Depurar os dados para verificar se estão corretos
         var dataFormatada = rowData.Data.split("/").reverse().join("-");
-
         $('#editarInputCodigo').val(rowData.Codigo);
         $('#editarInputNomeAtividade').val(rowData.Nome);
         $('#editarInputOrganizador').val(rowData.Organizador);
@@ -103,9 +102,7 @@ $(document).ready(function () {
         var dataP = getLocalStorage();
         var rowIndex = $('#reverPropostasModal').data('rowIndex');
         var dataA = getLocalStorageAtividades();
-        
-        console.log(rowIndex);
-        console.log(dataP[rowIndex].Estado);
+
 
         if(dataP[rowIndex].Estado == "Por Aprovar"){
 
@@ -118,7 +115,6 @@ $(document).ready(function () {
         }else if (dataP[rowIndex].Estado == "Aprovada"){
             alert("Esta atividade já foi aprovada!");
         }else{
-            console.log(dataP[rowIndex].Estado);
             alert("Esta atividade já foi rejeitada!");
         }
 
@@ -131,14 +127,14 @@ $(document).ready(function () {
 
         var rowIndex = $('#reverPropostasModal').data('rowIndex');
         var dataP = getLocalStorage();
-        
+
         if(dataP[rowIndex].Estado == "Por Aprovar"){
             dataP[rowIndex].Estado = "Rejeitada";
             saveToLocalStorage(dataP);
             table.clear().rows.add(dataP).draw();
         }else if (dataP[rowIndex].Estado == "Aprovada"){
             alert("Esta atividade já foi aprovada!");
-        }else if (dataP[rowIndex].Estado == "Rejeitada"){
+        }else{
             alert("Esta atividade já foi rejeitada!");
         }
         $('#reverPropostasModal').modal('hide');
@@ -159,12 +155,3 @@ $(document).ready(function () {
     });
 
 });
-
-    // Get user details from localStorage
-    var user = JSON.parse(localStorage.getItem('userSignIn'));
-
-    // Update profile image
-    $('.nav-link.dropdown-toggle img').attr('src', user.photoURL);
-    
-    // Update welcome message
-    $('#nomeUtilizador').text(user.displayName);
