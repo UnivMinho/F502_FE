@@ -355,10 +355,6 @@ if ($("#detailed-activities-chart").length) {
     document.getElementById('atividadesTotais').textContent = totalAtividades;
     document.getElementById('capacidadeMediaAtividades').textContent = capacidadeMediaPorAtividade;
     document.getElementById('mediaPrecoAtividades').textContent = mediaPrecoAtividades;
-  
-    // Aqui você pode calcular e atualizar o percentual de 30 dias, se necessário
-    const percentual30Dias = calcularPercentual30Dias(atividades);
-    document.getElementById('percentual30Dias').textContent = `${percentual30Dias.toFixed(2)}% (30 dias)`;
   }
   
   function getLocalStorage() {
