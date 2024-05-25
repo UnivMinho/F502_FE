@@ -131,14 +131,14 @@ function criarCard(atividade, index) {
         <div class="card-body">
             <div class="card-title-price">
                 <h5 class="card-title"><strong>${atividade.Nome}</strong></h5>
-                <p class="price">${atividade.Preco}</p>
             </div>
             <p class="card-text"><strong>Localização:</strong> ${atividade.Local}</p>
             <p class="card-text"><strong>Data:</strong> ${atividade.Data}</p>
-            <div class="text-center">
+            <div class="text-center" class="ver-mais-price">
                 <button type="button" class="btn btn-success ver-mais-btn" data-toggle="modal" data-target="#exampleModal" data-index="${index}">
                     VER MAIS
                 </button>
+                <p class="price">${atividade.Preco}</p>
             </div>
         </div>
     `;
