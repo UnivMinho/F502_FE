@@ -1126,6 +1126,9 @@ button {
     #texto-video-blog{
         display: none;
     }
+    #video-texto-pag{
+        display: none;
+    }
   }
 
 .card-title{
@@ -1349,5 +1352,14 @@ button {
     margin: 0 auto; /* Centraliza o vídeo horizontalmente */
 }
 
+.btn-entrarTel{
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none !important;
+}
 
+.btn-entrarTel:hover{
+    color: #ffffff;
+}
 
